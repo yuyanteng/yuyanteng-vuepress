@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1.node概述 | 前端领域 | 摸爬滚打</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/firepng.png">
+    <meta name="description" content="前端进阶之路">
+    
+    <link rel="preload" href="/assets/css/0.styles.ffb12200.css" as="style"><link rel="preload" href="/assets/js/app.b67e3504.js" as="script"><link rel="preload" href="/assets/js/2.181410c5.js" as="script"><link rel="preload" href="/assets/js/11.ef49b05b.js" as="script"><link rel="prefetch" href="/assets/js/10.c8fb53ad.js"><link rel="prefetch" href="/assets/js/12.8b9c68bf.js"><link rel="prefetch" href="/assets/js/13.54e880cc.js"><link rel="prefetch" href="/assets/js/14.c52346e6.js"><link rel="prefetch" href="/assets/js/15.61f9ddb7.js"><link rel="prefetch" href="/assets/js/16.25ed9857.js"><link rel="prefetch" href="/assets/js/17.5df85dd2.js"><link rel="prefetch" href="/assets/js/3.16c60fc7.js"><link rel="prefetch" href="/assets/js/4.c2046d50.js"><link rel="prefetch" href="/assets/js/5.d30371ba.js"><link rel="prefetch" href="/assets/js/6.299c5c19.js"><link rel="prefetch" href="/assets/js/7.0fb8c3f6.js"><link rel="prefetch" href="/assets/js/8.7da8a8d7.js"><link rel="prefetch" href="/assets/js/9.1bf45b0f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ffb12200.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端领域 | 摸爬滚打</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  我的概述
+</a></div><div class="nav-item"><a href="/pages/webBasics/" class="nav-link">
+  前端基础
+</a></div><div class="nav-item"><a href="/pages/react/redux.html" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/pages/vue/vueBasic.html" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/pages/moreKnow/git.html" class="nav-link">
+  前端披荆斩棘
+</a></div><div class="nav-item"><a href="https://github.com/yuyanteng" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  我的概述
+</a></div><div class="nav-item"><a href="/pages/webBasics/" class="nav-link">
+  前端基础
+</a></div><div class="nav-item"><a href="/pages/react/redux.html" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/pages/vue/vueBasic.html" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/pages/moreKnow/git.html" class="nav-link">
+  前端披荆斩棘
+</a></div><div class="nav-item"><a href="https://github.com/yuyanteng" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>必备知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/moreKnow/git.html" class="sidebar-link">git--基础使用</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>兼具知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/moreKnow/node.html" aria-current="page" class="active sidebar-link">node--简单使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_1-1-介绍" class="sidebar-link">1.1 介绍</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_1-2-node应用场景" class="sidebar-link">1.2 node应用场景</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_1-3-安装" class="sidebar-link">1.3 安装</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_1-4-模块化" class="sidebar-link">1.4 模块化</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_2-1-运行js文件" class="sidebar-link">2.1 运行js文件</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_2-2-核心模块" class="sidebar-link">2.2 核心模块</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-1-介绍" class="sidebar-link">3.1 介绍</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-2-传统开发和前后端分离开发" class="sidebar-link">3.2 传统开发和前后端分离开发</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-3-服务器相关概念" class="sidebar-link">3.3 服务器相关概念</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-4-创建web服务器" class="sidebar-link">3.4 创建web服务器</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-5-静态资源服务器" class="sidebar-link">3.5 静态资源服务器</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-6-获取数据-get" class="sidebar-link">3.6 获取数据-get</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_3-7-获取数据-post" class="sidebar-link">3.7 获取数据-post</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_4-1介绍" class="sidebar-link">4.1介绍</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_4-2切换npm源" class="sidebar-link">4.2切换npm源</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_4-3-npm相关命令" class="sidebar-link">4.3 npm相关命令</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_4-4-npm-自定义脚本命令" class="sidebar-link">4.4 npm 自定义脚本命令</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_4-5-自动重启应用" class="sidebar-link">4.5 自动重启应用</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_5-1-介绍" class="sidebar-link">5.1 介绍</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_5-2-基本使用" class="sidebar-link">5.2 基本使用</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_5-3-路由" class="sidebar-link">5.3 路由</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_5-4-中间件" class="sidebar-link">5.4 中间件</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#_5-5-cookie和session" class="sidebar-link">5.5 cookie和session</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#day01作业" class="sidebar-link">day01作业</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#day02作业" class="sidebar-link">day02作业</a></li><li class="sidebar-sub-header"><a href="/pages/moreKnow/node.html#day03作业" class="sidebar-link">day03作业</a></li></ul></li><li><a href="/pages/moreKnow/webpack.html" class="sidebar-link">Webpack--不再恐惧</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_1-node概述"><a href="#_1-node概述" class="header-anchor">#</a> 1.node概述</h1> <h2 id="_1-1-介绍"><a href="#_1-1-介绍" class="header-anchor">#</a> 1.1 介绍</h2> <p>https://nodejs.org/zh-cn/</p> <p>http://nodejs.cn/</p> <p>查看自己的node版本，必须确保版本在12以上，如果不在，卸载node然后重新下载安装</p> <p>Node.js 是一个开源与跨平台的JavaScript 运行时环境，使用C++语言编写</p> <p>它是在浏览器外运行，它是一个 事件驱动异步I/O 单进程的服务端JS环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</p> <p>它使用新的 ECMAScript 标准，不必等待所有用户更新其浏览器，可以通过更改其版本来决定要使用新的标准特性。</p> <p><strong>注意</strong></p> <ul><li>浏览器是JS的前端运行环境</li> <li>Node.js是JS的后端运行环境，在后端中运行无法调用 DOM 和 BOM 等浏览器内置 API</li> <li>nodejs调用服务查看服务器相关api gulp基础 -&gt;node环境</li></ul> <p>前端很多东西与node相关</p> <h2 id="_1-2-node应用场景"><a href="#_1-2-node应用场景" class="header-anchor">#</a> 1.2 node应用场景</h2> <ul><li>创建应用服务</li> <li>web开发</li> <li>接口开发</li> <li>客户端应用工具 gulp webpack vue脚手架 react脚手架 小程序等</li></ul> <h2 id="_1-3-安装"><a href="#_1-3-安装" class="header-anchor">#</a> 1.3 安装</h2> <p>nodejs环境安装非常便捷，直接可通过官网地址，下载对应的安装软件包即可安装使用。</p> <p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/1%20install.png" alt="img"></p> <p>如果在开发的过程中，需要安装多个node的版本以支持 多个项目的使用，建议使用 <a href="https://www.runoob.com/w3cnote/nvm-manager-node-versions.html" target="_blank" rel="noopener noreferrer">nvm node环境管理工具<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，可以根据自己的电脑系统选择安装。</p> <h2 id="_1-4-模块化"><a href="#_1-4-模块化" class="header-anchor">#</a> 1.4 模块化</h2> <p><strong>听过哪些模块化规范</strong>：</p> <p>Es6的模块化（export import）. ----- vue. React. Minpro ....</p> <p>Commonjs 规范. ------- node --- (vue react,minpro....)</p> <p>AMD规范 --- 淘汰 ---- require.js</p> <p>CMD规范 --- 淘汰. ---- sea.js</p> <p>NodeJs基于 Commonjs 模块化开发的规范，它定义一个JS文件就称之为一个模块</p> <p>node的模块类型</p> <ul><li>核心模块 - 安装nodejs自带的模块</li> <li>第三方模块 - 需要手动通过（npm/cnpm/yarn）安装的模块</li> <li>自定义模块 - 开发者自己编写的模块</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 模块导出
+module.exports
+exports
+
+// 模块导入
+require
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>Demo1:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 01app.js
+// 开发者A写的大量代码
+var obj = { // 字面量
+  name: '千锋北科校区H5-2007',
+  sayName: function () {
+    console.log(this.name)
+  }
+}
+
+// 暴露对象 --- 暴露语法
+module.exports = obj
+// obj.sayName()
+
+// 01index.js
+// 开发者B调用
+// ./ 相对路径之 当前路径
+// ../ 相对路径之 上一层级路径
+// 引入语法
+var obj = require('./01app.js') // 引入的是相对路径 ---- 不可以使用绝对路径
+
+// 调用功能
+obj.sayName()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>Demo2:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 02app.js
+var fun1 = function () {
+  console.log('function1')
+}
+
+var fun2 = function () {
+  console.log('function2')
+}
+
+var num = 100
+
+var str = '2007的小伙伴们，非常棒'
+
+// 如果只需要暴露一个  使用 module.exports 
+// 如果要暴露多个  使用 exports
+// exports.fun1 = fun1
+// exports.fun2 = fun2
+// exports.num = num
+// exports.str = str
+
+module.exports = {
+  fun1: fun1,
+  fun2: fun2,
+  num: num,
+  str: str
+}
+
+// 02index.js
+// commonjs规范，自定义模块引入时后缀名可以省略
+// var app = require('./02app')
+
+// app.fun1()
+// app.fun2()
+
+// console.log(app.num)
+// console.log(app.str)
+
+// 如果结合 es6 的解构赋值
+// 复习 es6 解构赋值 
+// https://es6.ruanyifeng.com/#docs/destructuring
+var { fun1, fun2, num, str } = require('./02app')
+
+fun1()
+fun2()
+console.log(num)
+console.log(str)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><p>具体代码查看code</p> <h1 id="_2-node快速开始"><a href="#_2-node快速开始" class="header-anchor">#</a> 2.node快速开始</h1> <h2 id="_2-1-运行js文件"><a href="#_2-1-运行js文件" class="header-anchor">#</a> 2.1 运行js文件</h2> <p>检测nodejs是否安装成功,命令行输入如下语句</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ node -v
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>如果需要查看node的相关语法以及使用命令</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ node
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="_2-2-核心模块"><a href="#_2-2-核心模块" class="header-anchor">#</a> 2.2 核心模块</h2> <h3 id="_2-2-1-os操作系统"><a href="#_2-2-1-os操作系统" class="header-anchor">#</a> 2.2.1 <a href="http://nodejs.cn/api/os.html" target="_blank" rel="noopener noreferrer">os操作系统<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const os = require('os');
+// 操作系统特定的行末标志。根据操作系统生成对应的换行符. 
+// console.log(os.EOL) // window 为 \r\n，linux为 \n
+
+// 返回一个对象数组，其中包含有关每个逻辑 CPU 内核的信息。
+// console.log(os.cpus())
+
+// 以整数的形式返回系统的内存总量（以字节为单位）。
+// console.log(os.totalmem() / 1024 / 1024 / 1024) // 16    以自己的电脑为例
+
+// 以整数的形式返回空闲的系统内存量（以字节为单位）。
+// console.log(os.freemem()  / 1024 / 1024 / 1024) // 2.79    以自己的电脑为例
+
+// 其余属性查看
+// http://nodejs.cn/api/os.html
+console.log(os.platform()) // 返回标识操作系统平台的字符串
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p><strong>用途</strong></p> <p>判断用户的使用平台，给予提示</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if (os.platform() === 'darwin') {
+  console.log('这里是mac平台')
+} else {
+  console.log('不是mac系统')
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><blockquote><p>场景：</p> <p>​	登录网站不同的操作系统 显示不同的下载链接</p> <p>​	下载文件时，提示文件过大，请先清除空间</p></blockquote> <h3 id="_2-2-2-path模块"><a href="#_2-2-2-path模块" class="header-anchor">#</a> 2.2.2 <a href="http://nodejs.cn/api/path.html" target="_blank" rel="noopener noreferrer">path模块<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <p>path模块用于处理文件和目录(文件夹)的路径</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// path模块用于处理文件和目录(文件夹)的路径
+
+var path = require('path')
+
+// console.log(path)
+// 获取路径最后一部内容  一般用它来获取文件名称
+// console.log(path.basename('c:/a/b/c/d.html'))  // d.html
+
+// 获取目录名，路径最后分隔符部分被忽略
+// console.log(path.dirname('c:/a/b/c/d.html')) // c:/a/b/c
+
+// 获取路径中文件扩展名
+// console.log(path.extname('c:/a/b/c/d.html')) // .html
+
+// 给定的路径连接在一起
+// console.log(path.join('c', 'a', 'd')) // c/a/d
+
+// path.parse() 方法会返回一个对象，其属性表示 path 的有效元素
+// console.log(path.parse('/目录1/目录2/文件.txt')) // { root: '/', dir: '/目录1/目录2', base: '文件.txt', ext: '.txt', name: '文件' }
+
+
+// 注意查看 http://nodejs.cn/api/path.html#path_path_resolve_paths 中的中文 部分
+// path.resolve() 方法会将路径或路径片段的序列解析为绝对路径。
+// 给定的路径序列会从右到左进行处理，后面的每个 path 会被追加到前面，直到构造出绝对路径
+// console.log(path.resolve('/目录1/目录2', './目录3')) // /目录1/目录2/目录3
+
+// console.log(path.resolve('/目录1/目录2', '/目录3/目录4/')) // /目录3/目录4
+// console.log(path.resolve('目录1', '目录2/目录3/', '../目录4/文件.gif')) // ../ 上级路径
+// /Users/wudaxun/Desktop/workspace/code/sz2108/code/week4/day01/目录1/目录2/目录4/文件.gif
+
+console.log(__dirname)
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="_2-2-3-url模块"><a href="#_2-2-3-url模块" class="header-anchor">#</a> 2.2.3 <a href="http://nodejs.cn/api/url.html" target="_blank" rel="noopener noreferrer">url模块<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <p>URL字符串是结构化的字符串，包含多个含义不同的组成部分。 解析字符串后返回的 URL 对象，每个属性对应字符串的各个组成部分。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                              href                                              │
+├──────────┬──┬─────────────────────┬────────────────────────┬───────────────────────────┬───────┤
+│ protocol │  │        auth         │          host          │           path            │ hash  │
+│          │  │                     ├─────────────────┬──────┼──────────┬────────────────┤       │
+│          │  │                     │    hostname     │ port │ pathname │     search     │       │
+│          │  │                     │                 │      │          ├─┬──────────────┤       │
+│          │  │                     │                 │      │          │ │    query     │       │
+<span class="token string">&quot;  https:   //    user   :   pass   @ sub.example.com : 8080   /p/a/t/h  ?  query=string   #hash &quot;</span>
+│          │  │          │          │    hostname     │ port │          │                │       │
+│          │  │          │          ├─────────────────┴──────┤          │                │       │
+│ protocol │  │ username │ password │          host          │          │                │       │
+├──────────┴──┼──────────┴──────────┼────────────────────────┤          │                │       │
+│   origin    │                     │         origin         │ pathname │     search     │ hash  │
+├─────────────┴─────────────────────┴────────────────────────┴──────────┴────────────────┴───────┤
+│                                              href                                              │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;url&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> urlStr <span class="token operator">=</span> <span class="token string">'https://www.baidu.com:8080/a/b/c?name=wudaxun&amp;age=18#test'</span>
+
+<span class="token comment">// const obj = url.parse(urlStr)</span>
+<span class="token comment">// console.log(obj)</span>
+<span class="token comment">/**
+ * Url {
+  protocol: 'https:',
+  slashes: true,
+  auth: null,
+  host: 'www.baidu.com:8080',
+  port: '8080',
+  hostname: 'www.baidu.com',
+  hash: '#test',
+  search: '?name=wudaxun&amp;age=18',
+  query: 'name=wudaxun&amp;age=18',
+  pathname: '/a/b/c',
+  path: '/a/b/c?name=wudaxun&amp;age=18',
+  href: 'https://www.baidu.com:8080/a/b/c?name=wudaxun&amp;age=18#test'
+}
+ */</span>
+<span class="token comment">// const obj = url.parse(urlStr)</span>
+<span class="token comment">// console.log(obj.query) // name=wudaxun&amp;age=18</span>
+
+<span class="token keyword">const</span> obj <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>urlStr<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>query<span class="token punctuation">)</span> <span class="token comment">// { name: 'wudaxun', age: '18' }</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h3 id="_2-2-4-querystring模块"><a href="#_2-2-4-querystring模块" class="header-anchor">#</a> 2.2.4 <a href="http://nodejs.cn/api/querystring.html" target="_blank" rel="noopener noreferrer">querystring模块<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;url&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> querystirng <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'querystring'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> urlStr <span class="token operator">=</span> <span class="token string">'https://www.baidu.com:8080/a/b/c?name=wudaxun&amp;age=18#test'</span>
+
+<span class="token keyword">const</span> queryStr <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>urlStr<span class="token punctuation">)</span><span class="token punctuation">.</span>query <span class="token comment">// name=wudaxun&amp;age=18</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> querystirng<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>queryStr<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token comment">// { name: 'wudaxun', age: '18' }</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_2-2-5-global全局变量"><a href="#_2-2-5-global全局变量" class="header-anchor">#</a> 2.2.5 <a href="http://nodejs.cn/api/globals.html" target="_blank" rel="noopener noreferrer">global全局变量<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// const global = require('global')</span>
+<span class="token comment">// console.log(global) // Cannot find module 'global'</span>
+
+<span class="token comment">// 无需引入gloabl</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">)</span> <span class="token comment">// 路径</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>__filename<span class="token punctuation">)</span> <span class="token comment">// 路径 + 名称</span>
+<span class="token comment">// 使用场景： 如果需要获取文件的路径 以及 名称时使用</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="_2-2-6-fs模块"><a href="#_2-2-6-fs模块" class="header-anchor">#</a> 2.2.6 <a href="http://nodejs.cn/api/fs.html" target="_blank" rel="noopener noreferrer">fs模块<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <p>fs模块提供了用于与文件进行交互相关方法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const fs = require('fs')
+
+# 写入数据
+fs.writeFile(文件,数据,err=&gt;{})
+
+# 读取文件中数据
+fs.readFile(文件, 'utf8’,(err,data)=&gt;{})
+
+# 检查文件是否存在    返回true/false
+fs.existsSync(path)
+
+# 获取文件信息
+fs.stat(文件,(err,stats)=&gt;{
+	stats.isDirectory() // 是否是目录
+	stats.isFile()       // 是否为文件
+	stats.size            // 文件大小(以字节为单位)
+})
+
+# 删除文件
+fs.unlink(文件,err=&gt;{})
+
+# 重命名
+fs.rename(旧文件名，新文件名, err =&gt; {})
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 写入文件</span>
+<span class="token comment">// fs.writeFile('test.txt', '你好，文件', err =&gt; {</span>
+<span class="token comment">//   if (err) {</span>
+<span class="token comment">//     console.log(err)</span>
+<span class="token comment">//   }</span>
+<span class="token comment">// })</span>
+<span class="token comment">// 追加</span>
+<span class="token comment">// fs.appendFile('test.txt', '追加', err =&gt; {</span>
+<span class="token comment">//   if (err) throw err // 抛出异常</span>
+<span class="token comment">// })</span>
+
+<span class="token comment">// 重命名</span>
+<span class="token comment">// fs.rename('test.txt', 'test.md', err =&gt; {</span>
+<span class="token comment">//   if (err) throw err // 抛出异常</span>
+<span class="token comment">// })</span>
+
+<span class="token comment">// fs.unlink('test.md', err =&gt; {</span>
+<span class="token comment">//   if (err) throw err // 抛出异常</span>
+<span class="token comment">// })</span>
+
+<span class="token comment">// 查看状态</span>
+<span class="token comment">// fs.stat('test.txt', (err, data) =&gt; {</span>
+<span class="token comment">//   if (err) throw err</span>
+<span class="token comment">//   console.log(data)</span>
+<span class="token comment">//   console.log(data.size)</span>
+<span class="token comment">//   console.log(data.isFile()) // true</span>
+<span class="token comment">//   console.log(data.isDirectory()) // false</span>
+<span class="token comment">// })</span>
+
+<span class="token comment">// 创建文件夹</span>
+<span class="token comment">// fs.mkdir('src', err =&gt; {</span>
+<span class="token comment">//   if (err) throw err</span>
+<span class="token comment">// })</span>
+
+<span class="token comment">// 读取文件信息</span>
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token comment">// 你好，文件</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h1 id="_3-web服务器"><a href="#_3-web服务器" class="header-anchor">#</a> 3.web服务器</h1> <h2 id="_3-1-介绍"><a href="#_3-1-介绍" class="header-anchor">#</a> 3.1 介绍</h2> <p>Web服务器一般指的是网站服务器，是指驻留因特网上某一台或N台计算机的程序，可以处理浏览器等Web客户端的请求并返回相应响应，目前最主流的三个Web服务器是Apache、 Nginx 、IIS。</p> <p><img src="nodeimg/image-20210922114515048.png" alt=""></p> <h2 id="_3-2-传统开发和前后端分离开发"><a href="#_3-2-传统开发和前后端分离开发" class="header-anchor">#</a> 3.2 传统开发和前后端分离开发</h2> <ul><li><p>传统的开发也叫做前后端耦合开发</p> <p>前端写完页面，交给后端，后端把html页面后缀名改为自己需要的页面模版，然后渲染数据，示意图如下</p></li></ul> <p><img src="nodeimg/image-20210922114749591.png" alt=""></p> <ul><li><p>前后端分离开发</p> <p>前端开发者编写html页面通过Ajax调用后端的RestFul API(get/post...)接口进行数据进行交互，后端负责接口开发无需关心页面结构，示意图如下</p> <p><img src="nodeimg/image-20210922115227312.png" alt=""></p></li></ul> <h2 id="_3-3-服务器相关概念"><a href="#_3-3-服务器相关概念" class="header-anchor">#</a> 3.3 服务器相关概念</h2> <h3 id="_3-3-1-ip地址"><a href="#_3-3-1-ip地址" class="header-anchor">#</a> 3.3.1 IP地址</h3> <p>IP地址就是互联网上每台计算机的唯一地址，因此IP地址具有唯一性。在开发期间，自己的电脑既是一台服务器，也是一个客户端，可以在本机浏览器中输入127.0.0.1进行访问</p> <h3 id="_3-3-2-域名"><a href="#_3-3-2-域名" class="header-anchor">#</a> 3.3.2 域名</h3> <p>尽管 IP地址能够唯一地标记网络上的计算机，但IP地址是一长串数字，不直观，而且不便于记忆，于是人们又发明了另一套字符型的地址方案，叫域名地址。IP地址和域名是一一对应的关系，这份对应关系存放在一种叫做域名服务器(DNS)的电脑中。在开发测试期间， 127.0.0.1 对应的域名是 localhost。</p> <p>本地如果localhost无法使用，则是因为本机中的hosts文件中没有匹配上ip地址</p> <ul><li>mac: /etc 下 hosts</li> <li>windows： c/<strong>windows</strong>/<strong>System32</strong>/<strong>drivers</strong>/<strong>etc</strong> 下hosts</li></ul> <p>添加 127.0.0.1 localhost</p> <h3 id="_3-3-3-网络协议"><a href="#_3-3-3-网络协议" class="header-anchor">#</a> 3.3.3 网络协议</h3> <p>网络上的计算机之间交换信息,就像我们说话用某种语言一样，在网络上的各台计算机之间也有一种语言，这就是网络协议，不同的计算机之间必须使用相同的网络协议才能进行通信。如：TCP、UDP、HTTP、FTP等等。</p> <h3 id="_3-3-4-端口"><a href="#_3-3-4-端口" class="header-anchor">#</a> 3.3.4 端口</h3> <p>服务器的端口号就像是现实生活中的门牌号一样。通过门牌号，外卖员就可以准确把外卖</p> <p>送到你的手中。同样的道理，在一台电脑中，可以运行N多个web 服务。每个 web 服务都对应一个唯一的端口号。客户端发送过来的网络请求，通过端口号，可以被准确地交给对应的 web 服务进行处理</p> <p><strong>注意</strong></p> <ul><li>http 默认端口为 80</li> <li>https 默认端口为443</li></ul> <h2 id="_3-4-创建web服务器"><a href="#_3-4-创建web服务器" class="header-anchor">#</a> 3.4 创建web服务器</h2> <p>NodeJs是通过官方提供的http模块来创建 web服务器的模块。</p> <p>通过几行简单的代码，就能轻松的手写一个web服务，从而对外提供 web 服务。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html;charset=utf-8'</span>
+    <span class="token comment">// 'content-type': 'text/plain;charset=utf-8'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;h1&gt;hello world&lt;/h1&gt;'</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'您好'</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="_3-5-静态资源服务器"><a href="#_3-5-静态资源服务器" class="header-anchor">#</a> 3.5 静态资源服务器</h2> <p>phpstudy 安装好之后，会在 www 文件夹下放置 静态的资源，启动phpstudy，然后通过 <a href="http://localhost/" target="_blank" rel="noopener noreferrer">http://localhost:80<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 再加上需要的信息即可访问，其中www文件夹就被称之为静态资源文件夹</p> <p>客户端请求的每个资源uri地址，作为在本机服务器指定目录中的文件。</p> <p>通过相关模块进行读取文件中数据进行响应给客户端，从而实现静态服务器。</p> <p><img src="nodeimg/image-20210922161907261.png" alt=""></p> <p>假设目录结构如下：</p> <p>07static</p> <p>-app.js</p> <p>www</p> <p>-read.txt</p> <p>-index.html</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 学php的时候，是不是把写好的页面放到服务器的 www 的文件夹下 --- 静态资源服务器</span>
+<span class="token comment">// 想要达成目标 访问时不需要加www  ---- www就是静态资源的目录</span>
+<span class="token comment">/**
+ * http://localhost:3000/  			# 显示 index.html
+  http://localhost:3000/index.html	# 显示 index.html
+  http://localhost:3000/read.txt		# 显示 read.txt
+ */</span>
+<span class="token keyword">var</span> wwwDir <span class="token operator">=</span> __dirname <span class="token comment">// 当前文件的绝对路径</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+  res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span>
+    <span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html;charset=utf-8'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span>
+  <span class="token comment">// console.log(req.url) // /   /favicon.ico   过滤</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>url <span class="token operator">!==</span> <span class="token string">'/favicon.ico'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// console.log(req.url)</span>
+    <span class="token comment">// 1.获取用户请求的地址</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url
+    <span class="token comment">// 2.默认值</span>
+    <span class="token keyword">var</span> filePath <span class="token operator">=</span> <span class="token string">'/index.html'</span><span class="token punctuation">;</span>		<span class="token comment">// 路径为 '/' 时 文件路径指向index.html</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">!==</span> <span class="token string">'/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      filePath <span class="token operator">=</span> url
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 读取www文件夹下的文件</span>
+    fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>wwwDir<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/www</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>filePath<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">throw</span> err
+      <span class="token comment">// console.log(data)</span>
+      res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+      res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><p>地址栏输入如下测试</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>http://localhost:3000/  			# 显示 index.html
+http://localhost:3000/index.html	# 显示 index.html
+http://localhost:3000/read.txt		# 显示 read.txt
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_3-6-获取数据-get"><a href="#_3-6-获取数据-get" class="header-anchor">#</a> 3.6 获取数据-get</h2> <p>get数据通过地址栏使用query方式进行传递的数据</p> <p>例如请求地址http://localhost:3000/login?userName=wudaxun&amp;password=123</p> <p>08get/app.js</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html;charset=utf-8'</span>
+    <span class="token comment">// 'content-type': 'text/plain;charset=utf-8'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>url <span class="token operator">!==</span> <span class="token string">'/favicon.ico'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> query <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>url<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span>query
+    res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'姓名:'</span> <span class="token operator">+</span>  query<span class="token punctuation">.</span>userName <span class="token operator">+</span> <span class="token string">'&lt;br /&gt;'</span><span class="token punctuation">)</span>
+    res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'密码:'</span> <span class="token operator">+</span>  query<span class="token punctuation">.</span>password<span class="token punctuation">)</span>
+    res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 运行代码，地址栏输入 http://localhost:3000/login?userName=wudaxun&amp;password=123 查看效果</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="_3-7-获取数据-post"><a href="#_3-7-获取数据-post" class="header-anchor">#</a> 3.7 获取数据-post</h2> <p>表单数据多数为post进行提交到服务器端,可以通过<a href="https://www.postman.com/" target="_blank" rel="noopener noreferrer">postman<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>测试</p> <p>除非后端告诉你以form表单的形式提交数据，否则就选择x-www-form-urlencoded</p> <p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/17.png" alt="img"></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 09post.js</span>
+<span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> querystring <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'querystring'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html;charset=utf-8'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// post 接收数据 通过  data 事件接收</span>
+  <span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">''</span>
+  req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">// data 默认为Buffer数据</span>
+    <span class="token comment">// console.log(data.toString())</span>
+    str <span class="token operator">+=</span> data<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 累加数据</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> obj <span class="token operator">=</span> querystring<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token comment">// 处理数据</span>
+    res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'姓名:'</span> <span class="token operator">+</span>  obj<span class="token punctuation">.</span>userName <span class="token operator">+</span> <span class="token string">'&lt;br /&gt;'</span><span class="token punctuation">)</span>
+    res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'密码:'</span> <span class="token operator">+</span>  obj<span class="token punctuation">.</span>password<span class="token punctuation">)</span>
+    res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><h1 id="_4-npm包管理器"><a href="#_4-npm包管理器" class="header-anchor">#</a> 4.NPM包管理器</h1> <p>npm</p> <p>使用npm/cnpm/yarn安装的资源，都会显示到当前文件夹下的 node_modules 文件夹内，一般在上传文件时，忽略 node_modules</p> <h2 id="_4-1介绍"><a href="#_4-1介绍" class="header-anchor">#</a> 4.1介绍</h2> <p>npm是当前市场上最大的包资源管理器。你能想到的都可以去这里下载。其他的包管理器相当于是一个小卖部，npm包管理器相当于沃尔玛超市</p> <p>npm是NodeJs项目模块管理工具，它已经集成了nodejs安装包中，在npm从从5.2版开始，增加了 npx 命令(解决的主要问题，就是调用项目内部安装的模块，很多工具不再需要npm -g 全局来完成使用了)，使用npm可以实现从NPM服务器下载别人编写的第三方包到本地使用。</p> <p>npm仓库地址：https://www.npmjs.com/</p> <p>当然除了npm以外还有Facebook贡献的Yarn，功能和npm一样。</p> <h2 id="_4-2切换npm源"><a href="#_4-2切换npm源" class="header-anchor">#</a> 4.2切换npm源</h2> <p>npm使用国外镜像源地址，在有的时候可能网络不是很通顺，这时可以使用国内镜像源来完成npm下载模块功能</p> <p>切换到阿里提供的npm镜像源</p> <p>地址：https://developer.aliyun.com/mirror/NPM?from=tnpm</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 执行如下命令
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+执行完毕上述命名后，在系统中提供了一个cnpm包管理工具，功能和npm一样，所不同的是cnpm镜像源地址为 阿里提供的源地址。
+
+推荐 日后工作是安装软件都使用cnpm
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><strong>使用nrm管理npm镜像源</strong></p> <p>nrm 是一个 npm 源管理器，允许你快速地在 npm源间切换。npm默认情况下是使用npm官方源(npm config list 来查看),如果直接修改npm源，如果后续需要连接到官方源才能工作，这样来回切换源就变得麻烦了，nrm通过简单的命令就可以解决此问题</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 安装  通过cnpm来安装，cnpm使用的就是国内镜像源
+cnpm i nrm -g
+注 -g global 全局，让nrm不限于到某一个项目中，而是在所有的项目中都可使用
+# 查看可用源
+nrm ls
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/18.png" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 切换
+nrm use 名称(npm)
+nrm use cnpm
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_4-3-npm相关命令"><a href="#_4-3-npm相关命令" class="header-anchor">#</a> 4.3 npm相关命令</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm init     生成项目的描述文件 package.json ---- 一路敲回车即可
+
+# 如果嫌麻烦
+创建文件夹 08npm
+npm init -y   不再询问你的意见，直接生成
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/19.png" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 查看本项目已安装模块
+npm list
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/20.png" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 安装模块
+npm install 模块名[@版本号 可选]  或  npm i 模块名[@版本号 可选]
+
+cnpm i bootstrap 
+
+npm list
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/21.png" alt="img"></p> <p><strong>只要出现模块以及他的版本号即代表成功，可能展示形式不太一样</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 卸载已安装模块
+npm uninstall 模块名
+
+cnpm uninstall bootstrap
+
+# 发现node_modules文件夹内容清空
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>安装 全局依赖 ---- 本电脑中的任何一个位置都可以访问的 ---- cnpm</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cnpm i 模块 -g
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>安装 项目依赖 --- 项目运行时必不可少的依赖 --- 所有的依赖都可以安装成项目依赖 --- 默认</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cnpm i 模块 --save
+cnpm i 模块 -S
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>安装 开发依赖 --- 项目开发时需要，上线以后不需要的依赖 --- 代码格式的校验依赖（开发时校验好代码规则，项目上线就是符合规则的，不需要把它装到项目依赖）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cnpm i 模块 --save-dev
+cnpm i 模块 -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/22.png" alt="img"></p> <p>假如某一天，忘记了自己全局安装过的模块的路径，想要查看</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 查看全局node_modules的地址
+npm root -g
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/23.png" alt="img"></p> <p>如果是windows系统，<strong>全局安装</strong>的模块会有一定的小问题（安装没问题，但是使用会有问题，但并不是所有人都会有问题）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cnpm i @vue/cli -g     # 全局安装的vue的脚手架
+
+vue -V    # @vue/cli 4.5.9
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>如果是windows的用户，部分人会报如下的错误</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>无法加载文件 C://****/vue.psl,因为在此系统上禁止运行脚本
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/24.png" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm root -g  # 找到全局安装的模块的文件夹
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>直接进入到这个文件夹的内部，调整显示文件的后缀名，然后删除vue.psl文件即可，重新执行就可以</p> <p><strong>徐晓春贡献</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>还有个法子win10这个设置 更新安全里开发者有这个选项 默认是关闭的 打开就好了
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/25.png" alt="img"></p> <h2 id="_4-4-npm-自定义脚本命令"><a href="#_4-4-npm-自定义脚本命令" class="header-anchor">#</a> 4.4 npm 自定义脚本命令</h2> <p>通过package.json文件中的scripts自定义脚本命令</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;node main.js&quot;
+  },
+}
+
+# 运行命令
+npm run dev
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="_4-5-自动重启应用"><a href="#_4-5-自动重启应用" class="header-anchor">#</a> 4.5 自动重启应用</h2> <p>在编写调试Node.js项目，修改代码后需要频繁的手动重启应用，非常繁琐。nodemon这个工具，它的作用是监听代码文件的变动，当代码改变之后，自动重启。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 全局安装nodemon
+cnpm i -g nodemon
+
+# 执行node脚本
+nodemon app.js
+
+# 配置脚本 package.json
+{
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;nodemon main.js&quot;
+  },
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>还可以使用其余的模块。supervisor</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cnpm i supervisor -g
+# 执行node脚本
+supervisor app.js
+
+# 配置脚本 package.json
+{
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;supervisor main.js&quot;
+  },
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h1 id="_5-express"><a href="#_5-express" class="header-anchor">#</a> 5.express</h1> <h2 id="_5-1-介绍"><a href="#_5-1-介绍" class="header-anchor">#</a> 5.1 介绍</h2> <p>网址：https://www.expressjs.com.cn/</p> <p>Express 是基于 Node.js 平台，快速、开放、极简的 Web 开发框架。搭建web服务器</p> <p>Express 的本质：就是一个 npm 上的第三方包，提供了快速创建 Web 服务器的便捷方法。</p> <p>使用Express开发框架可以非常方便、快速的创建Web网站的服务器或API接口的服务器</p> <h2 id="_5-2-基本使用"><a href="#_5-2-基本使用" class="header-anchor">#</a> 5.2 基本使用</h2> <h3 id="_5-2-1-安装"><a href="#_5-2-1-安装" class="header-anchor">#</a> 5.2.1 安装</h3> <p>在项目目录express_course中，打开cmd命令窗口，执行如下命令</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cnpm init -y
+cnpm i -S express
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>文件夹名称不要含有中文字符</strong></p> <h3 id="_5-2-2-创建web服务"><a href="#_5-2-2-创建web服务" class="header-anchor">#</a> 5.2.2 创建web服务</h3> <p>先用 node 服务器实现多个页面的路由</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>
+<span class="token comment">// 10express_course/old.js</span>
+<span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>url <span class="token operator">!==</span> <span class="token string">'/favicon.ico'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span>
+      <span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html;charset=utf-8'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">const</span> pathname <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">.</span>pathname
+
+    <span class="token comment">// node原生路由实现</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pathname <span class="token operator">===</span> <span class="token string">'/home'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'首页'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>pathname <span class="token operator">===</span> <span class="token string">'/kind'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'分类'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>pathname <span class="token operator">===</span> <span class="token string">'/cart'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'购物车'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>pathname <span class="token operator">===</span> <span class="token string">'/user'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'我的'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'404'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><p>使用express实现同样的功能</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 10express_course/express.js
+const express = require('express')
+const app = express()
+
+app.get('/home', (req, res, next) =&gt; {
+  res.send('express首页')
+})
+app.get('/kind', (req, res, next) =&gt; {
+  res.send('express分类')
+})
+app.get('/cart', (req, res, next) =&gt; {
+  res.send('express购物车')
+})
+app.get('/user', (req, res, next) =&gt; {
+  res.send('express个人中心')
+})
+
+app.listen(3000)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>查看当前服务器的端口号是否启动</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// windows
+netstat -ano | findstr 3000
+
+// linux/mac
+lsof -i:3000      # 查询出哪个进程占用该端口号
+kill -9 进程号			# 关闭该进程
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>接口调试工具</strong></p> <p><strong>postman/apipost/apizza 前两者是软件需安装，后在线即可使用</strong></p> <p>RestFul路由规则定义</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 10express_couse/restful.js</span>
+<span class="token comment">// 请求 get / post / put / patch / delete</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/proList'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">'/update'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'/delete'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>调试可以使用上面所说三个软件中之一来进行调试即可</p> <h3 id="_5-2-3-获取接口的相关参数"><a href="#_5-2-3-获取接口的相关参数" class="header-anchor">#</a> 5.2.3 获取接口的相关参数</h3> <p>通过 req.query 对象，可以访问到客户端通过查询字符串的形式发送到服务器的参数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>app.get('/',(req,res)=&gt;{
+	console.log(req.query)
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>通过 req.body 对象，可以访问到post请求发送到服务器的参数，但是得配置中间件</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// post 请求 需要额外的配置信息 ---- express 自带的</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// for parsing application/json json格式化</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>express<span class="token punctuation">.</span><span class="token function">urlencoded</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">extended</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// for parsing application/x-www-form-urlencoded</span>
+
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_5-2-4-url中动态参数"><a href="#_5-2-4-url中动态参数" class="header-anchor">#</a> 5.2.4 URL中动态参数</h3> <p>通过 req.params 对象，可以访问到 URL 中动态参数</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// http://localhost:3000/detail/1</span>
+<span class="token comment">// http://localhost:3000/detail/2</span>
+<span class="token comment">// http://localhost:3000/detail/3</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/detail/:proid'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>params<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="_5-2-5-静态资源管理"><a href="#_5-2-5-静态资源管理" class="header-anchor">#</a> 5.2.5 静态资源管理</h3> <p>express提供了一个非常好用的方法，叫做 express.static()，通过此方法，可以非常方便地创建一个静态web资源服务器</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const express = require('express')
+const app = express()
+
+// http://localhost:3000/a.js
+// http://localhost:3000/b.js
+// 设置public目录为静态资源目录
+app.use('/', express.static('public'))
+
+app.listen(3000)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_5-3-路由"><a href="#_5-3-路由" class="header-anchor">#</a> 5.3 路由</h2> <h3 id="_5-3-1-概述"><a href="#_5-3-1-概述" class="header-anchor">#</a> 5.3.1 概述</h3> <p>路由在生活中如拨打服务电话时，按数字几能处理什么样的处理，它就是类似于按键与服务之间的映射关系。</p> <p>在Express中，路由指的就是客户端发起的请求与服务器端处理方法之间的映射关系。</p> <p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/26.png" alt="img"></p> <h3 id="_5-3-2-定义路由"><a href="#_5-3-2-定义路由" class="header-anchor">#</a> 5.3.2 定义路由</h3> <p>express中的路由分3部份组件，分别是请求类型、请求uri和对应的处理函数。</p> <p>当一个客户端请求到达服务端之后，先经过路由规则匹配，只有匹配成功之后，才会调用对应的处理函数。在匹配时，会按照路由的顺序进行匹配，如果请求类型和请求的 URL 同时匹配成功，则 Express 会将这次请求，转交给对应的函数进行处理。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>app.&lt;get/post/put/delete/use&gt;(uri,(req,res)=&gt;{})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="_5-3-3-模块化路由"><a href="#_5-3-3-模块化路由" class="header-anchor">#</a> 5.3.3 模块化路由</h3> <p>在开发项目时，如果将所有的路由规则都挂载到入口文件中，程序编写和维护都变化更加困难。所以express为了路由的模块化管理功能，通过express.Router()方法创建路由模块化处理程序，可以将不同业务需求分开到不同的模块中，从而便于代码的维护和项目扩展。</p> <p>路由模块化处理可以分为以下步骤来完成</p> <p>Ø 创建独立js空白文件(最好是统一放在一个目录下)</p> <p>Ø 在js中使用express.Router()方法创建路由模块对象</p> <p>Ø 使用路由对象完成路由规则的对应的业务编写</p> <p>Ø 使用模块化导出(module.exports=router)</p> <p>Ø 在主入口文件中能过app.use方法来注册定义的路由模块</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 09router/pro.js
+const express = require('express')
+// 在js中使用express.Router()方法创建路由模块对象
+const router = express.Router()
+// 使用路由对象完成路由规则的对应的业务编写
+router.get('/list', (req, res, next) =&gt; {
+  res.send('产品列表')
+})
+router.get('/detail/:id', (req, res, next) =&gt; {
+  res.send('产品详情')
+})
+router.get('/category', (req, res, next) =&gt; {
+  res.send('产品分类')
+})
+// 使用模块化导出(module.exports=router)
+module.exports = router
+// 09router/user.js
+const express = require('express')
+// 在js中使用express.Router()方法创建路由模块对象
+const router = express.Router()
+// 使用路由对象完成路由规则的对应的业务编写
+router.get('/list', (req, res, next) =&gt; {
+  res.send('用户列表')
+})
+router.get('/detail/:id', (req, res, next) =&gt; {
+  res.send('用户详情')
+})
+router.get('/role', (req, res, next) =&gt; {
+  res.send('用户角色')
+})
+// 使用模块化导出(module.exports=router)
+module.exports = router
+// 09 express_router.js
+const express = require('express')
+
+const app = express()
+
+// 产品相关路由   -----  A
+// 用户相关路由   -----  B
+// 为了团队合作，多人合作。提高开发效率
+// 引入模块
+const pro = require('./09router/pro')
+const user = require('./09router/user')
+// 在主入口文件中能过app.use方法来注册定义的路由模块
+app.use('/pro', pro)
+app.use('/user', user)
+
+// 共同的路由
+app.get('/', (req, res, next) =&gt; {
+  res.send('首页')
+})
+
+app.listen(3000, (req, res) =&gt; {
+  console.log('your server is running at http://localhost:3000')
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br></div></div><p>浏览器分别输入如下代码测试</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>http://localhost:3000/      				首页
+http://localhost:3000/pro/list      产品列表
+http://localhost:3000/pro/detail/1  产品详情
+http://localhost:3000/pro/category  产品分类
+http://localhost:3000/user/list     用户列表
+http://localhost:3000/user/detail/1 用户详情
+http://localhost:3000/pro/role      用户角色
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>思考： 09 express_router.js 文件中 有如下代码,是不是可以随意的放置位置</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 共同的路由
+app.get('/', (req, res, next) =&gt; {
+  res.send('首页')
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/27.png" alt="img"></p> <p>为什么 很多人喜欢放后面？</p> <p><strong>一般情况下，很多会理解为 路由是从上到下匹配，匹配到就停止</strong> ---- 理念在 vue react 中存在 ----- 坑</p> <h2 id="_5-4-中间件"><a href="#_5-4-中间件" class="header-anchor">#</a> 5.4 中间件</h2> <h3 id="_5-4-1-中间件理解"><a href="#_5-4-1-中间件理解" class="header-anchor">#</a> 5.4.1 中间件理解</h3> <p>中间件可以理解为业务流程的中间处理环节。如生活中吃一般炒青菜，大约分为如下几步骤</p> <p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/14.png" alt="img"></p> <p>express中当一个请求到达的服务器之后，可以在给客户响应之前连续调用多个中间件，来对本次请求和返回响应数据进行处理。</p> <p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/15.png" alt="img"></p> <h3 id="_5-4-2-中间件分类"><a href="#_5-4-2-中间件分类" class="header-anchor">#</a> 5.4.2 中间件分类</h3> <p>中间件可以分类可分如下几类</p> <p>Ø 内置中间件 也就是express本身自带 无带npm安装</p> <p>Ø 第三方中间件</p> <p>非 Express 官方内置的，而是由第三方开发出来的中间件，叫做第三方中间件。</p> <p>在项目中可以通过npm进行安装第三方中间件并配置，从而提高项目的开发效率。</p> <p>例如body-parser 此中间件可以很方便帮助我们获取到post提交过来的数据。</p> <p><strong>坑：后期项目中部分同学电脑上会需要使用body-parser， 上传大图，以前的版本用这个，随着express的升级，通过 express.json()和express.urlencoded()实现</strong></p> <p>Ø 自定义中间件 开发者自己编写的</p> <h3 id="_5-4-3-自定义中间件"><a href="#_5-4-3-自定义中间件" class="header-anchor">#</a> 5.4.3 自定义中间件</h3> <p>自定义中间件，其本质就是定义一个处理请求的函数，只是此函数中除了有request和response参数外还必须包含一个next参数，此参数作用让中间件能够让流程向下执行下去直到匹配到的路由中发送响应给客户端。也可以通过给request对象添加属性来进行中间件数据的向下传递</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function mfn(req,res,next){
+	
+	// 中间件最后一定要执行此函数，否则程序无法向下执行下去
+	next()
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><img src="https://gitee.com/daxunxun/bk-2007-course/raw/master/note/week1-node/img/16.png" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const express = require('express')
+const app = express()
+
+app.use((req, res, next) =&gt; {
+  req.a = 10
+  next()
+})
+app.use((req, res, next) =&gt; {
+  req.b = 20
+  next()
+})
+app.use((req, res, next) =&gt; {
+  req.c = 30
+  next()
+})
+app.get('/', (req, res, next) =&gt; {
+  res.send({
+    a: req.a,
+    b: req.b,
+    c: req.c
+  })
+})
+app.listen(3000)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p><strong>使用中间件来实现错误的统一处理,即错误级别中间件</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>app.get(uri,(req,res)=){
+	// 如果处理有异常 抛出一个自定义错误
+	throw new Error('服务器内部错误')
+
+	res.send('hello')
+})
+
+// 自定义中间件完成错误级别中间件 --- 如果不设置。走默认路线，如果设置，走设置路线 --- 放到上一个案例中
+app.use((err,req,res,next)=&gt;{
+	// 此处err必须为第1个参数，它会获取得到 throw抛出的异常信息
+	console.log(err.message)
+	res.send(err.message)
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_5-4-4-内置中间件"><a href="#_5-4-4-内置中间件" class="header-anchor">#</a> 5.4.4 内置中间件</h3> <p>express也提供了好用的内置中间件，如提供一个静态资源管理的中间件，通过此中间件就可以帮助为我们快速搭建一个静态资源服务器</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>app.use(express.static('托管目录地址'))
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="_5-4-5-第三方中间件"><a href="#_5-4-5-第三方中间件" class="header-anchor">#</a> 5.4.5 第三方中间件</h3> <p>express搭建的web服务器中想要接受表单中的post数据可以通过第3方中间件帮助解析获取post数据</p> <p>步骤如下：</p> <p>Ø 安装第3方中间件 cnpm i -S body-parser</p> <p>Ø 在应用文件中导入 require</p> <p>Ø 通过中间件调用 app.use(body.urlencoded({extended: false}))</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>创建 application/x-www-form-urlencoded 解析
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Ø 在匹配的路由中通过 req.body获数post中数据</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>注意：Express 内置的 express.urlencoded 中间件，就是基于 body-parser 这个第三方中间件进一步封装出来的。但内置的有版本兼容问题，所以一般项目选择安装使用第3方
+// 11 express_next_install.js
+const express = require('express')
+const BodyParser = require('body-parser'); // cnpm i body-parser -S
+const app = express()
+// 通过中间件调用  ----  post 通过req.body 获取到数据
+app.use(BodyParser.urlencoded({extended: false})) // 以前解决的方案
+
+// http://localhost:3000/register
+// postman - body - x-www-from-urlencoded 
+// username  大勋勋
+// password  654321
+app.post('/register', (req, res) =&gt; {
+  console.log(req.body) // 默认是 undefined ---- body-parser
+  res.send(req.body)
+})
+app.listen(3000, (req, res) =&gt; {
+  console.log('your server is running at http://localhost:3000')
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>注意观察 06 demo 以及 11 demo的区别</p> <h2 id="_5-5-cookie和session"><a href="#_5-5-cookie和session" class="header-anchor">#</a> 5.5 cookie和session</h2> <h3 id="_5-5-1-cookie"><a href="#_5-5-1-cookie" class="header-anchor">#</a> 5.5.1 cookie</h3> <p>HTTP是一个无状态协议，客户端每次发出请求时候，下一次请求得不到上一次请求的数据，我们如何将上一次请求和下一次请求的数据关联起来呢？</p> <p>如用户登录成功后，跳转到其他页面时候，其他的页面是如何知道该用户已经登录了呢？</p> <p>此时就可以使用到cookie中的值来判断用户是否登录，cookie可以保存用户数据。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cookie 既可以在客户端使用，也可以在服务端使用
+cookie 可以存储的大小为4K
+cookie 存在有效期
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>cookie它是一个由浏览器和服务器共同协作实现的。cookie分为如下几步实现：</p> <p>Ø 服务器端向客户端发送cookie并指定cookie的过期时间。</p> <p>Ø 浏览器将cookie保存起来。</p> <p>Ø 之后每次请求都会将cookie发向服务器端，在cookie没有过期时间内服务器都可以得到cookie中的值。</p> <p>express中操作的cookie使用 cookie-parser模块 cnpm i -S cookie-parser</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> CookieParser <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cookie-parser'</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">CookieParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/ list'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> cookies <span class="token operator">=</span> req<span class="token punctuation">.</span>cookies <span class="token comment">// 获取cookie</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>cookies<span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">cookie</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'wudaxun'</span><span class="token punctuation">)</span> <span class="token comment">// 设置cookie</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">'前端获取到的cookie为：'</span> <span class="token operator">+</span> cookies<span class="token punctuation">.</span>username
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="_5-5-2-session"><a href="#_5-5-2-session" class="header-anchor">#</a> 5.5.2 session</h3> <p>cookie操作很方便，但是使用cookie安全性不高，cookie中的所有数据存储在客户端浏览器中，数据很容易被伪造；</p> <p>所以一些重要的数据就不能放在cookie当中了，并且cookie还有一个缺点就是不能存放太多的数据，一般浏览大约在4k左右，为了解决这些问题，session就产生了，session中的数据保留在服务端的 ---- 内存中。</p> <p>把数据放到cookie中是不安全的，我们可以在cookie中存放一个sessionId值,该sessionId会与服务器端之间会产生映射关系，如果sessionId被篡改的话，那么它就不会与服务器端数据之间产生映射，因此安全性就更好，并且session的有效期一般比较短，一般都是设置是20分钟左右，如果在20分钟内客户端与服务端没有产生交互，服务端就会将数据删除。</p> <p><strong>session的原理是通过一个sessionid来进行的，sessionid是放在客户端的cookie中，当请求到来时候，服务端会检查cookie中保存的sessionid是否有，并且与服务端的session数据映射起来，进行数据的保存和修改，也就是说当我们浏览一个网页时候，服务端会随机生成一个1024比特长的字符串，然后存在cookie中的sessionid字段中，当我们下次访问时，cookie会带有sessionid这个字段。</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> session <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express-session'</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">session</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">secret</span><span class="token operator">:</span> <span class="token string">'sz2108'</span><span class="token punctuation">,</span> <span class="token comment">// 密钥  自己随便制定</span>
+  <span class="token literal-property property">resave</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">saveUninitialized</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">cookie</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">secure</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/list'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> session <span class="token operator">=</span> req<span class="token punctuation">.</span>session <span class="token comment">// 获取 session</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>session<span class="token punctuation">)</span>
+  req<span class="token punctuation">.</span>session<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">'wudaxun11111'</span> <span class="token comment">// 设置 session</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">'前端获取到的 session 为：'</span> <span class="token operator">+</span> session<span class="token punctuation">.</span>username
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h1 id="作业"><a href="#作业" class="header-anchor">#</a> 作业</h1> <h2 id="day01作业"><a href="#day01作业" class="header-anchor">#</a> day01作业</h2> <ul><li>复习 es6 的解构赋值</li></ul> <p>https://es6.ruanyifeng.com/#docs/destructuring</p> <ul><li><p>查找面试题： 说说AMD，CMD以及Commonjs规范，以及es6模块化之间的区别？</p></li> <li><p>下载资源</p> <p>下载bootstrap项目模板 百度网盘下载 链接：https://pan.baidu.com/s/128UX3FzlkkNNYc3IoR5jvA 提取码：lbbg</p> <p>安装数据库相关软件 --- windows 安装mongodb 百度网盘下载: 链接：https://pan.baidu.com/s/1mIbNrhzFMzMzB3jLs92Dsg 提取码：o8pw</p> <p>mac</p> <p>https://www.cnblogs.com/cbowen/p/11748922.html</p></li></ul> <h2 id="day02作业"><a href="#day02作业" class="header-anchor">#</a> day02作业</h2> <ul><li><p>高频面试题：nodejs中的错误优先回调</p> <p><strong>通俗讲，在node中，我们在设计一个回调函数的时候，要优先解决错误，然后再传参</strong></p> <p>如果有错，我还谈什么继续</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>if (err) throw err
+.....
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>熟练web服务器的搭建</p></li> <li><p>了解并且知道npm相关概念</p></li> <li><p>预习第5个步骤express</p></li></ul> <h2 id="day03作业"><a href="#day03作业" class="header-anchor">#</a> day03作业</h2> <ul><li>经典面试题：尽可能全面比较 webStorage 以及cookie</li> <li>熟记 cookie 以及 session 的区别</li> <li>预习 --- 预习笔记中第二天第6点开始</li> <li>好好练习今天的代码</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/pages/moreKnow/git.html" class="prev">
+        git--基础使用
+      </a></span> <span class="next"><a href="/pages/moreKnow/webpack.html">
+        Webpack--不再恐惧
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b67e3504.js" defer></script><script src="/assets/js/2.181410c5.js" defer></script><script src="/assets/js/11.ef49b05b.js" defer></script>
+  </body>
+</html>

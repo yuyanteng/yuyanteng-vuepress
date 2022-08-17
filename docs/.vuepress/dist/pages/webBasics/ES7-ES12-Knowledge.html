@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ES7-ES12的知识点 | 前端领域 | 摸爬滚打</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/firepng.png">
+    <meta name="description" content="前端进阶之路">
+    
+    <link rel="preload" href="/assets/css/0.styles.ffb12200.css" as="style"><link rel="preload" href="/assets/js/app.b67e3504.js" as="script"><link rel="preload" href="/assets/js/2.181410c5.js" as="script"><link rel="preload" href="/assets/js/15.61f9ddb7.js" as="script"><link rel="prefetch" href="/assets/js/10.c8fb53ad.js"><link rel="prefetch" href="/assets/js/11.ef49b05b.js"><link rel="prefetch" href="/assets/js/12.8b9c68bf.js"><link rel="prefetch" href="/assets/js/13.54e880cc.js"><link rel="prefetch" href="/assets/js/14.c52346e6.js"><link rel="prefetch" href="/assets/js/16.25ed9857.js"><link rel="prefetch" href="/assets/js/17.5df85dd2.js"><link rel="prefetch" href="/assets/js/3.16c60fc7.js"><link rel="prefetch" href="/assets/js/4.c2046d50.js"><link rel="prefetch" href="/assets/js/5.d30371ba.js"><link rel="prefetch" href="/assets/js/6.299c5c19.js"><link rel="prefetch" href="/assets/js/7.0fb8c3f6.js"><link rel="prefetch" href="/assets/js/8.7da8a8d7.js"><link rel="prefetch" href="/assets/js/9.1bf45b0f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ffb12200.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端领域 | 摸爬滚打</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  我的概述
+</a></div><div class="nav-item"><a href="/pages/webBasics/" class="nav-link router-link-active">
+  前端基础
+</a></div><div class="nav-item"><a href="/pages/react/redux.html" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/pages/vue/vueBasic.html" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/pages/moreKnow/git.html" class="nav-link">
+  前端披荆斩棘
+</a></div><div class="nav-item"><a href="https://github.com/yuyanteng" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  我的概述
+</a></div><div class="nav-item"><a href="/pages/webBasics/" class="nav-link router-link-active">
+  前端基础
+</a></div><div class="nav-item"><a href="/pages/react/redux.html" class="nav-link">
+  React
+</a></div><div class="nav-item"><a href="/pages/vue/vueBasic.html" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/pages/moreKnow/git.html" class="nav-link">
+  前端披荆斩棘
+</a></div><div class="nav-item"><a href="https://github.com/yuyanteng" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>前端基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/webBasics/handwriting.html" class="sidebar-link">手写代码</a></li><li><a href="/pages/webBasics/ES7-ES12-Knowledge.html" aria-current="page" class="active sidebar-link">ES7-ES12知识点</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_1、array-prototype-includes" class="sidebar-link">1、Array.prototype.includes()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_2、幂运算符" class="sidebar-link">2、幂运算符 **</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_1、object-values" class="sidebar-link">1、Object.values()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_2、object-entries" class="sidebar-link">2、Object.entries()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_3、object-getownpropertydescriptors" class="sidebar-link">3、Object.getOwnPropertyDescriptors()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_4、string-prototype-padstart" class="sidebar-link">4、String.prototype.padStart</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_5、string-prototype-padend" class="sidebar-link">5、String.prototype.padEnd</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_6、尾逗号-trailing-commas" class="sidebar-link">6、尾逗号 Trailing commas</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_7、async-await" class="sidebar-link">7、async/await</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_1、object-rest-spread" class="sidebar-link">1、Object Rest &amp; Spread</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_2、for-await-of" class="sidebar-link">2、for await of</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_3、promise-prototype-finally" class="sidebar-link">3、Promise.prototype.finally()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_4、string-扩展" class="sidebar-link">4、String 扩展</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_1、object-fromentries" class="sidebar-link">1、Object.fromEntries()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_2、array-prototype-flat" class="sidebar-link">2、Array.prototype.flat()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_3、array-prototype-flatmap" class="sidebar-link">3、Array.prototype.flatMap()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_4、string-prototype-trimstart" class="sidebar-link">4、String.prototype.trimStart()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_5、string-prototype-trimend" class="sidebar-link">5、String.prototype.trimEnd()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_6、可选的catch-binding" class="sidebar-link">6、可选的Catch Binding</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_7、symbol-prototype-description" class="sidebar-link">7、Symbol.prototype.description</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_8、json-stringify-增强能力" class="sidebar-link">8、JSON.stringify() 增强能力</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_9、修订-function-prototype-tostring" class="sidebar-link">9、修订 Function.prototype.toString()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_1、空值合并运算符-nullish-coalescing-operator" class="sidebar-link">1、空值合并运算符（Nullish coalescing Operator）</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_2、可选链-optional-chaining" class="sidebar-link">2、可选链 Optional chaining</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_3、globalthis" class="sidebar-link">3、globalThis</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_4、bigint" class="sidebar-link">4、BigInt</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_5、string-prototype-matchall" class="sidebar-link">5、String.prototype.matchAll()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_6、promise-allsettled" class="sidebar-link">6、Promise.allSettled()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_7、dynamic-import-按需-import" class="sidebar-link">7、Dynamic Import（按需 import）</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_1、逻辑运算符和赋值表达式" class="sidebar-link">1、逻辑运算符和赋值表达式（&amp;&amp;=，||=，??=）</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_2、string-prototype-replaceall" class="sidebar-link">2、String.prototype.replaceAll()</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#数字分隔符" class="sidebar-link">数字分隔符</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_3、promise-any" class="sidebar-link">3、Promise.any</a></li><li class="sidebar-sub-header"><a href="/pages/webBasics/ES7-ES12-Knowledge.html#_4、weakref-and-finalizers" class="sidebar-link">4、WeakRef and Finalizers</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="es7-es12的知识点"><a href="#es7-es12的知识点" class="header-anchor">#</a> ES7-ES12的知识点</h1> <hr> <p><a href="https://juejin.cn/post/7046217976176967711" target="_blank" rel="noopener noreferrer">2022年了，这些ES7-ES12的知识点你都掌握了嘛？ - 掘金<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h1> <p>听说现在大家在工作中ES6语法都已经用的炉火纯青了，那ES7-ES12的新特性你现在都用上了嘛？很多的新特性在开发中还是很实用的，也解决了很多js存在的问题。自己熬夜爆肝一个周末,总结出了ES7-ES12的语法，希望对你能有一定的帮助。最后，了解真相，你才能获得真正的自由！</p> <h1 id="一、es2016-es7"><a href="#一、es2016-es7" class="header-anchor">#</a> 一、ES2016(ES7)</h1> <h2 id="_1、array-prototype-includes"><a href="#_1、array-prototype-includes" class="header-anchor">#</a> 1、Array.prototype.includes()</h2> <p><code>includes()</code> 方法用来判断一个数组是否包含一个指定的值，如果包含则返回 <code>true</code>，否则返回 <code>false</code>。</p> <h3 id="语法"><a href="#语法" class="header-anchor">#</a> 语法</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>arr.includes(valueToFind[, fromIndex])
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><code>valueToFind</code>，需要查找的元素值。</p> <p><code>fromIndex</code> 可选 从<code>fromIndex</code> 索引处开始查找 <code>valueToFind</code>。如果为负值（即从末尾开始往前跳 <code>fromIndex</code> 的绝对值个索引，然后往后搜寻）。默认为 0。</p> <h3 id="示例"><a href="#示例" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const arr = ['es6', 'es7', 'es8']
+console.log(arr.includes('es7')) // true
+console.log(arr.includes('es7', 1)) // true
+console.log(arr.includes('es7', 2)) // false
+console.log(arr.includes(&quot;es7&quot;, -1)); // fsle
+console.log(arr.includes(&quot;es7&quot;, -2)); // true
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="注意点"><a href="#注意点" class="header-anchor">#</a> 注意点</h3> <p>使用 <code>includes()</code>查找字符串是区分大小写的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const arr = [&quot;es6&quot;, &quot;es7&quot;, &quot;es8&quot;, &quot;a&quot;];
+console.log(arr.includes(&quot;A&quot;)); // false
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>使用 <code>includes()</code>只能判断简单类型的数据，对于复杂类型的数据，比如对象类型的数组，二维数组，这些是无法判断的.</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const arr = ['es6', ['es7', 'es8'], 'es9',{name:&quot;jimmy&quot;}]
+console.log(arr.includes([&quot;es7&quot;, &quot;es8&quot;])); // false
+console.log(arr.includes({name:&quot;jimmy&quot;})); // false
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>能识别NaN，indexOf是不能识别NaN的</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const arr = ['es6', 'es7', NaN, 'es8']
+console.log(arr.includes(NaN)) // true
+console.log(arr.indexOf(NaN)) // -1
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>最后，如果只想知道某个值是否在数组中存在，而并不关心它的索引位置，建议使用includes(),如果想获取一个值在数组中的位置，那么使用indexOf方法。</p> <h2 id="_2、幂运算符"><a href="#_2、幂运算符" class="header-anchor">#</a> 2、幂运算符 **</h2> <p>比如我们想求2的10次方。</p> <h3 id="自己写函数实现"><a href="#自己写函数实现" class="header-anchor">#</a> 自己写函数实现</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>function pow(x, y) {
+    let result = 1
+    for (let i = 0; i &lt; y; i++) {
+        result *= x
+    }
+    return result
+}
+console.log(pow(2, 10)) // 1024
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="math-pow"><a href="#math-pow" class="header-anchor">#</a> Math.pow()</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>console.log(Math.pow(2, 10)); // 1024
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="幂运算符"><a href="#幂运算符" class="header-anchor">#</a> 幂运算符 **</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>console.log(2 ** 10); // 1024
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>基本求幂</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>2 ** 3   // 8
+3 ** 2   // 9
+3 ** 2.5 // 15.588457268119896
+10 ** -1 // 0.1
+NaN ** 2 // NaN
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><strong>注意</strong></p> <p>幂运算符的两个*号之间不能出现空格，否则语法会报错。</p> <h1 id="二、es2017-es8"><a href="#二、es2017-es8" class="header-anchor">#</a> 二、ES2017(ES8)</h1> <h2 id="_1、object-values"><a href="#_1、object-values" class="header-anchor">#</a> 1、Object.values()</h2> <p><code>Object.values</code> 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {
+  name: &quot;jimmy&quot;,
+  age: 18,
+  height: 188,
+};
+console.log(Object.values(obj)); // [ 'jimmy', 18, 188 ]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_2、object-entries"><a href="#_2、object-entries" class="header-anchor">#</a> 2、Object.entries()</h2> <p>Object.entries() 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历属性的键值对数组。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {
+  name: &quot;jimmy&quot;,
+  age: 18,
+  height: 188,
+};
+console.log(Object.entries(obj)); // [ [ 'name', 'jimmy' ], [ 'age', 18 ], [ 'height', 188 ] ]
+console.log(Object.entries([1, 2, 3])); // [ [ '0', 1 ], [ '1', 2 ], [ '2', 3 ] ]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="_3、object-getownpropertydescriptors"><a href="#_3、object-getownpropertydescriptors" class="header-anchor">#</a> 3、Object.getOwnPropertyDescriptors()</h2> <p><code>Object.getOwnPropertyDescriptors()</code>  方法用来获取一个对象的所有自身属性的描述符。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {
+  name: &quot;jimmy&quot;,
+  age: 18,
+};
+const desc = Object.getOwnPropertyDescriptors(obj);
+console.log(desc);
+// 打印结果
+{
+  name: {
+    value: 'jimmy',
+    writable: true,
+    enumerable: true,
+    configurable: true
+  },
+  age: {
+   value: 18,
+   writable: true,
+   enumerable: true,
+   configurable: true
+  }
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>上面打印结果中的</p> <ul><li><code>value</code>表示当前对象的默认值</li> <li><code>writable</code>表示对象属性是否可以修改</li> <li><code>enumerable</code>表示当前这个属性是否可以出现在对象的枚举属性中</li> <li><code>configurable</code>表示当前对象的属性能否用delete删除</li></ul> <p>那这些对象的属性我们怎么设置和修改他们呢，我们可以使用es5的 <code>Object.defineProperty()</code></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {};
+Object.defineProperty(obj, &quot;name&quot;, {
+  value: &quot;jimmy&quot;,
+  writable: true,
+  configurable: true,
+  enumerable: true,
+});
+Object.defineProperty(obj, &quot;age&quot;, {
+  value: 34,
+  writable: true,
+  configurable: true,
+  enumerable: true,
+});
+console.log(obj); // { name: 'jimmy', age: 34 }
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>接下来我们演示下，一些属性设置为false的情况</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {};
+Object.defineProperty(obj, &quot;name&quot;, {
+  value: &quot;jimmy&quot;,
+  writable: false,
+  configurable: false,
+  enumerable: true,
+});
+console.log(obj); // { name: 'jimmy' }
+obj.name = &quot;chimmy&quot;;
+console.log(obj); // { name: 'jimmy' }
+delete obj.name
+console.log(obj); // { name: 'jimmy' }
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>我们可以看到设置 writable: false和configurable: false,为false时，对象的name对象的值不能改变和不能被删除，打印出来还是原来的对象。</p> <p><strong>设置enumerable为false时</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {};
+Object.defineProperty(obj, &quot;name&quot;, {
+  value: &quot;jimmy&quot;,
+  writable: true,
+  configurable: true,
+  enumerable: false,
+});
+console.log(obj); // { }
+for (let key in obj) {
+  console.log(key); // &quot;&quot;
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>当设置enumerable: false时，表示对象的属性不可被枚举，这时打印对象为空，遍历对象的键也为空。</p> <h2 id="_4、string-prototype-padstart"><a href="#_4、string-prototype-padstart" class="header-anchor">#</a> 4、String.prototype.padStart</h2> <p>把指定字符串填充到字符串头部，返回新字符串。</p> <h3 id="语法-2"><a href="#语法-2" class="header-anchor">#</a> 语法</h3> <p>str.padStart(targetLength [, padString])</p> <ul><li><code>targetLength</code></li></ul> <p>当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。</p> <ul><li><code>padString</code> 可选</li></ul> <p>填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断。此参数的默认值为 &quot; &quot;</p> <h3 id="示例-2"><a href="#示例-2" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>'abc'.padStart(10);         // &quot;       abc&quot;
+'abc'.padStart(10, &quot;foo&quot;);  // &quot;foofoofabc&quot;
+'abc'.padStart(6,&quot;123465&quot;); // &quot;123abc&quot;
+'abc'.padStart(8, &quot;0&quot;);     // &quot;00000abc&quot;
+'abc'.padStart(1);          // &quot;abc&quot;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="应用场景"><a href="#应用场景" class="header-anchor">#</a> 应用场景</h3> <p>日期格式化：yyyy-mm-dd的格式：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const now = new Date()
+const year = now.getFullYear()
+// 月份和日期 如果是一位前面给它填充一个0
+const month = (now.getMonth() + 1).toString().padStart(2, '0')
+const day = (now.getDate()).toString().padStart(2, '0')
+console.log(year, month, day)
+console.log( `${year}-${month}-${day}` ) //输入今天的日期 2021-12-31
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>数字替换(手机号，银行卡号等）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const tel = '18781268679'
+const newTel = tel.slice(-4).padStart(tel.length, '*')
+console.log(newTel) // *******5678
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_5、string-prototype-padend"><a href="#_5、string-prototype-padend" class="header-anchor">#</a> 5、String.prototype.padEnd</h2> <p>把指定字符串填充到字符串尾部，返回新字符串。</p> <p>语法同上</p> <h3 id="示例-3"><a href="#示例-3" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>'abc'.padEnd(10);          // &quot;abc       &quot;
+'abc'.padEnd(10, &quot;foo&quot;);   // &quot;abcfoofoof&quot;
+'abc'.padEnd(6, &quot;123456&quot;); // &quot;abc123&quot;
+'abc'.padEnd(1);           // &quot;abc&quot;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="应用场景-2"><a href="#应用场景-2" class="header-anchor">#</a> 应用场景</h3> <p>在JS前端我们处理时间戳的时候单位是ms毫秒，但是，后端同学返回的时间戳则不一样是毫秒，可能只有10位，以s秒为单位。所以，我们在前端处理这个时间戳的时候，保险起见，要先做一个13位的补全，保证单位是毫秒。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 伪代码
+console.log(new Date().getTime()) // 时间戳 13位的
+timestamp = +String(timestamp).padEnd(13, '0')
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_6、尾逗号-trailing-commas"><a href="#_6、尾逗号-trailing-commas" class="header-anchor">#</a> 6、尾逗号 Trailing commas</h2> <p>ES8 允许函数的最后一个参数有尾逗号（Trailing comma）。
+此前，函数定义和调用时，都不允许最后一个参数后面出现逗号。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function clownsEverywhere(
+    param1,
+    param2
+) {
+    /* ... */
+}
+
+clownsEverywhere(
+    'foo',
+    'bar'
+)
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>上面代码中，如果在param2或bar后面加一个逗号，就会报错。</p> <p>如果像上面这样，将参数写成多行（即每个参数占据一行），以后修改代码的时候，想为函数clownsEverywhere添加第三个参数，或者调整参数的次序，就势必要在原来最后一个参数后面添加一个逗号。这对于版本管理系统来说，就会显示添加逗号的那一行也发生了变动。这看上去有点冗余，因此新的语法允许定义和调用时，尾部直接可以加上一个逗号。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function clownsEverywhere(
+    param1,
+    param2,
+) {
+    /* ... */
+}
+
+clownsEverywhere(
+    'foo',
+    'bar',
+)
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>这样的规定也使得，函数参数与数组和对象的尾逗号规则，保持一致了。</p> <h2 id="_7、async-await"><a href="#_7、async-await" class="header-anchor">#</a> 7、async/await</h2> <h3 id="介绍"><a href="#介绍" class="header-anchor">#</a> 介绍</h3> <p>我们都知道使用 Promise 能很好地解决回调地狱的问题，但如果处理流程比较复杂的话，那么整段代码将充斥着 then，语义化不明显，代码不能很好地表示执行流程，那有没有比 Promise 更优雅的异步方式呢？那就是async/await！我们一起来揭开它神秘的面撒吧！</p> <p>前面添加了async的函数在执行后都会自动返回一个Promise对象:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function foo() {
+    return 'jimmy'
+}
+console.log(foo()) // 'jimmy'
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>添加async后</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>async function foo() {
+    return 'jimmy' // Promise.resolve('jimmy')
+}
+console.log(foo()) // Promise
+foo()
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>async函数中使用await，那么await这里的代码就会变成同步的了，意思就是说只有等await后面的Promise执行完成得到结果才会继续下去，await就是等待。请看下面的示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function timeout() {
+    return new Promise(resolve =&gt; {
+        setTimeout(() =&gt; {
+            console.log(1)
+            resolve()
+        }, 1000)
+    })
+}
+
+// 不加async和await是2、1   加了是1、2
+async function foo() {
+    await timeout()
+    console.log(2)
+}
+foo()
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="使用场景"><a href="#使用场景" class="header-anchor">#</a> 使用场景</h3> <p>假如有这样一个使用场景：需要先请求 a 链接，等返回信息之后，再请求 b 链接的另外一个资源。下面代码展示的是使用 fetch 来实现这样的需求，fetch 被定义在 window 对象中，它返回的是一个 Promise 对象。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>fetch('https://blog.csdn.net/')
+  .then(response =&gt; {
+    console.log(response)
+    return fetch('https://juejin.im/')
+  })
+  .then(response =&gt; {
+    console.log(response)
+  })
+  .catch(error =&gt; {
+    console.log(error)
+  })
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>虽然上述代码可以实现这个需求，但语义化不明显，代码不能很好地表示执行流程。基于这个原因，ES8 引入了 async/await，这是 JavaScript 异步编程的一个重大改进，提供了在不阻塞主线程的情况下使用同步代码实现异步访问资源的能力，并且使得代码逻辑更加清晰。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>async function foo () {
+  try {
+    let response1 = await fetch('https://blog.csdn.net/')
+    console.log(response1)
+    let response2 = await fetch('https://juejin.im/')
+    console.log(response2)
+  } catch (err) {
+    console.error(err)
+  }
+}
+foo()
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>通过上面代码，你会发现整个异步处理的逻辑都是使用同步代码的方式来实现的，而且还支持 try catch 来捕获异常，这感觉就在写同步代码，所以是非常符合人的线性思维的。</p> <h3 id="注意点-2"><a href="#注意点-2" class="header-anchor">#</a> 注意点</h3> <ul><li>await 只能在 async 标记的函数内部使用，单独使用会触发 Syntax error。</li> <li>await后面需要跟异步操作，不然就没有意义，而且await后面的Promise对象不必写then，因为await的作用之一就是获取后面Promise对象成功状态传递出来的参数。</li></ul> <h3 id="async-await的缺陷"><a href="#async-await的缺陷" class="header-anchor">#</a> async/await的缺陷</h3> <p>了解<code>Async/await</code>是非常有用的，但还有一些缺点需要考虑。</p> <p><code>Async/await</code> 让你的代码看起来是同步的，在某种程度上，也使得它的行为更加地同步。 <code>await</code> 关键字会阻塞其后的代码，直到promise完成，就像执行同步操作一样。它确实可以允许其他任务在此期间继续运行，但您自己的代码被阻塞。</p> <p>这意味着您的代码可能会因为大量<code>await</code>的promises相继发生而变慢。每个<code>await</code>都会等待前一个完成，而你实际想要的是所有的这些promises同时开始处理（就像我们没有使用<code>async/await</code>时那样）。</p> <p>有一种模式可以缓解这个问题——通过将 <code>Promise</code> 对象存储在变量中来同时开始它们，然后等待它们全部执行完毕。如果想更加深入的了解，请参考 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FLearn%2FJavaScript%2FAsynchronous%2FAsync_await%23asyncawait%25E7%259A%2584%25E7%25BC%25BA%25E9%2599%25B7" target="_blank" rel="noopener noreferrer">MDN<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="三、es2018-es9"><a href="#三、es2018-es9" class="header-anchor">#</a> 三、ES2018(ES9)</h1> <h2 id="_1、object-rest-spread"><a href="#_1、object-rest-spread" class="header-anchor">#</a> 1、Object Rest &amp; Spread</h2> <p>在 ES9 新增 Object 的 Rest &amp; Spread 方法，直接看下示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const input = {
+  a: 1,
+  b: 2,
+  c: 3,
+}
+
+const output = {
+  ...input,
+  c: 4
+}
+
+console.log(output) // {a: 1, b: 2, c: 4}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>这块代码展示了 spread 语法，可以把 input 对象的数据都拓展到 output 对象，这个功能很实用。需要注意的是，<strong>如果存在相同的属性名，只有最后一个会生效</strong>。</p> <h3 id="注意点-3"><a href="#注意点-3" class="header-anchor">#</a> 注意点</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = { x: { y: 10 } };
+const copy1 = { ...obj };
+const copy2 = { ...obj };
+obj.x.y = &quot;jimmy&quot;;
+console.log(copy1, copy2); // x: {y: &quot;jimmy&quot;} x: {y: &quot;jimmy&quot;}
+console.log(copy1.x === copy2.x); // → true
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>如果属性的值是一个对象的话，该对象的引用会被拷贝，而不是生成一个新的对象。</p> <p>我们再来看下 <code>Object rest</code> 的示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const input = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+let { a, ...rest } = input
+
+console.log(a, rest) // 1 {b: 2, c: 3}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>当对象 key-value 不确定的时候，把必选的 key 赋值给变量，用一个变量收敛其他可选的 key 数据，这在之前是做不到的。注意，<strong>rest 属性必须始终出现在对象的末尾</strong>，否则将抛出错误。</p> <h2 id="_2、for-await-of"><a href="#_2、for-await-of" class="header-anchor">#</a> 2、for await of</h2> <p>异步迭代器(for-await-of)：循环等待每个Promise对象变为resolved状态才进入下一步。</p> <p>我们知道 for...of 是同步运行的，看如下代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function TimeOut(time){
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve(time)
+        }, time)
+    })
+}
+
+async function test() {
+    let arr = [TimeOut(2000), TimeOut(1000), TimeOut(3000)]
+    for (let item of arr) {
+     console.log(Date.now(),item.then(console.log))
+    }
+}
+
+test()
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>上面打印结果如下图</p> <p><a href="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9770e5600d0455c987be604f0d623cb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?" target="_blank" rel="noopener noreferrer">https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e9770e5600d0455c987be604f0d623cb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>上述代码证实了 for of 方法不能遍历异步迭代器，得到的结果并不是我们所期待的，于是 for await of 就粉墨登场啦！</p> <p><strong>ES9 中可以用 for...await...of 的语法来操作</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function TimeOut(time) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve(time)
+        }, time)
+    })
+}
+
+async function test() {
+    let arr = [TimeOut(2000), TimeOut(1000), TimeOut(3000)]
+    for await (let item of arr) {
+        console.log(Date.now(), item)
+    }
+}
+test()
+// 1560092345730 2000
+// 1560092345730 1000
+// 1560092346336 3000
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>for await of 环等待每个Promise对象变为resolved状态才进入下一步。所有打印的结果为 2000，1000，3000</p> <h2 id="_3、promise-prototype-finally"><a href="#_3、promise-prototype-finally" class="header-anchor">#</a> 3、Promise.prototype.finally()</h2> <p>Promise.prototype.finally() 方法返回一个Promise，在promise执行结束时，无论结果是fulfilled或者是rejected，在执行then()和catch()后，都会执行finally指定的回调函数。这为指定执行完promise后，无论结果是fulfilled还是rejected都需要执行的代码提供了一种方式，避免同样的语句需要在then()和catch()中各写一次的情况。</p> <h3 id="示例-4"><a href="#示例-4" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+        resolve('success')
+        // reject('fail')
+    }, 1000)
+}).then(res =&gt; {
+    console.log(res)
+}).catch(err =&gt; {
+    console.log(err)
+}).finally(() =&gt; {
+    console.log('finally')
+})
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="使用场景-2"><a href="#使用场景-2" class="header-anchor">#</a> 使用场景</h3> <p><strong>loading关闭</strong></p> <p>需要每次发送请求，都会有loading提示，请求发送完毕，就需要关闭loading提示框，不然界面就无法被点击。不管请求成功或是失败，这个loading都需要关闭掉，这时把关闭loading的代码写在finally里再合适不过了</p> <h2 id="_4、string-扩展"><a href="#_4、string-扩展" class="header-anchor">#</a> 4、String 扩展</h2> <p>放松对标签模板里字符串转义的限制, 遇到不合法的字符串转义会返回undefined，并且从raw上可获取原字符串。</p> <p>下面是一个es6 的标签模板 如果对这个语法感到陌生，请参考 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fes6.ruanyifeng.com%2F%23docs%2Fstring%23%25E6%25A0%2587%25E7%25AD%25BE%25E6%25A8%25A1%25E6%259D%25BF" target="_blank" rel="noopener noreferrer">标签模板<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const foo = (a, b, c) =&gt; {
+    console.log(a)
+    console.log(b)
+    console.log(c)
+}
+const name = 'jimmy'
+const age = 18
+foo `这是${name},他的年龄是${age}岁`
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>参数打印如下：</p> <p><a href="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6db7b7356279465d85c197b9d284425d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?" target="_blank" rel="noopener noreferrer">https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6db7b7356279465d85c197b9d284425d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>ES9开始，模板字符串允许嵌套支持常见转义序列，移除对ECMAScript在带标签的模版字符串中转义序列的语法限制。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function foo(a, b, c) {
+    console.log(a, b, c)
+}
+// 在标签函数中使用
+// unicode字符\u{61} 对应的值为 a
+// unicode字符\u{62} 对应的值为 b
+// \unicode 是一个无效的unicode字符
+foo `\u{61} and \u{62}`
+foo `\u{61} and \unicode`
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p><a href="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d484a5ff27d4001948e2f7955d3ba7c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?" target="_blank" rel="noopener noreferrer">https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d484a5ff27d4001948e2f7955d3ba7c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="注意点-4"><a href="#注意点-4" class="header-anchor">#</a> 注意点</h3> <p>在模板字符串中，如果输入无效的unicode字符，还是会报错。只有在便签模板中 从es9开始才不会报错。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> let string = `\u{61} and \unicode`;
+ console.log(string); // Uncaught SyntaxError: Invalid Unicode escape sequence
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h1 id="四、es2019-es10"><a href="#四、es2019-es10" class="header-anchor">#</a> 四、ES2019(ES10)</h1> <h2 id="_1、object-fromentries"><a href="#_1、object-fromentries" class="header-anchor">#</a> 1、Object.fromEntries()</h2> <p>方法 Object.fromEntries() 把键值对列表转换为一个对象，这个方法是和 Object.entries() 相对的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Object.fromEntries([
+    ['foo', 1],
+    ['bar', 2]
+])
+// {foo: 1, bar: 2}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="案例1-object-转换操作"><a href="#案例1-object-转换操作" class="header-anchor">#</a> 案例1：Object 转换操作</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const obj = {
+    name: 'jimmy',
+    age: 18
+}
+const entries = Object.entries(obj)
+console.log(entries)
+// [Array(2), Array(2)]
+
+// ES10
+const fromEntries = Object.fromEntries(entries)
+console.log(fromEntries)
+// {name: &quot;jimmy&quot;, age: 18}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="案例2-map-转-object"><a href="#案例2-map-转-object" class="header-anchor">#</a> 案例2：Map 转 Object</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const map = new Map()
+map.set('name', 'jimmy')
+map.set('age', 18)
+console.log(map) // {'name' =&gt; 'jimmy', 'age' =&gt; 18}
+
+const obj = Object.fromEntries(map)
+console.log(obj)
+// {name: &quot;jimmy&quot;, age: 18}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="案例3-过滤"><a href="#案例3-过滤" class="header-anchor">#</a> 案例3：过滤</h3> <p>course表示所有课程，想请求课程分数大于80的课程组成的对象：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const course = {
+    math: 80,
+    english: 85,
+    chinese: 90
+}
+const res = Object.entries(course).filter(([key, val]) =&gt; val &gt; 80)
+console.log(res) // [ [ 'english', 85 ], [ 'chinese', 90 ] ]
+console.log(Object.fromEntries(res)) // { english: 85, chinese: 90 }
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="案例4-url的search参数转换"><a href="#案例4-url的search参数转换" class="header-anchor">#</a> 案例4：url的search参数转换</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// let url = &quot;https://www.baidu.com?name=jimmy&amp;age=18&amp;height=1.88&quot;
+// queryString 为 window.location.search
+const queryString = &quot;?name=jimmy&amp;age=18&amp;height=1.88&quot;;
+const queryParams = new URLSearchParams(queryString);
+const paramObj = Object.fromEntries(queryParams);
+console.log(paramObj); // { name: 'jimmy', age: '18', height: '1.88' }
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_2、array-prototype-flat"><a href="#_2、array-prototype-flat" class="header-anchor">#</a> 2、Array.prototype.flat()</h2> <h3 id="语法-3"><a href="#语法-3" class="header-anchor">#</a> 语法</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>let newArray = arr.flat([depth])
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ul><li><code>depth</code> 可选</li></ul> <p>指定要提取嵌套数组的结构深度，默认值为 1。</p> <h3 id="示例-5"><a href="#示例-5" class="header-anchor">#</a> 示例</h3> <p><code>flat()</code>  方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const arr1 = [0, 1, 2, [3, 4]];
+console.log(arr1.flat());  //  [0, 1, 2, 3, 4]
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+console.log(arr2.flat(2));  //  [0, 1, 2, [3, 4]]
+
+//使用 Infinity，可展开任意深度的嵌套数组
+var arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// `flat()` 方法会移除数组中的空项:
+var arr5 = [1, 2, , 4, 5];
+arr5.flat(); // [1, 2, 4, 5]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h2 id="_3、array-prototype-flatmap"><a href="#_3、array-prototype-flatmap" class="header-anchor">#</a> 3、Array.prototype.flatMap()</h2> <p>flatMap() 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。从方法的名字上也可以看出来它包含两部分功能一个是 map，一个是 flat（深度为1）。</p> <h3 id="语法-4"><a href="#语法-4" class="header-anchor">#</a> 语法</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>var new_array = arr.flatMap(function callback(currentValue[, index[, array]]) {
+    // 返回新数组的元素
+}[, thisArg])
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li><code>callback</code></li></ul> <p>可以生成一个新数组中的元素的函数，可以传入三个参数：</p> <p><code>currentValue</code></p> <p>当前正在数组中处理的元素</p> <p><code>index</code></p> <p>可选 数组中正在处理的当前元素的索引。</p> <p><code>array</code></p> <p>可选   被调用的 <code>map</code> 数组</p> <ul><li><code>thisArg</code>可选</li></ul> <p>执行 <code>callback</code> 函数时 使用的<code>this</code> 值。</p> <h3 id="示例-6"><a href="#示例-6" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const numbers = [1, 2, 3]
+numbers.map(x =&gt; [x * 2]) // [[2], [4], [6]]
+numbers.flatMap(x =&gt; [x * 2]) // [2, 4, 6]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>这个示例可以简单对比下 map 和 flatMap 的区别。当然还可以看下下面的示例：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let arr = ['今天天气不错', '', '早上好']
+arr.map(s =&gt; s.split(''))
+// [[&quot;今&quot;, &quot;天&quot;, &quot;天&quot;, &quot;气&quot;, &quot;不&quot;, &quot;错&quot;],[&quot;&quot;],[&quot;早&quot;, &quot;上&quot;, &quot;好&quot;]]
+arr.flatMap(s =&gt; s.split(''))
+// [&quot;今&quot;, &quot;天&quot;, &quot;天&quot;, &quot;气&quot;, &quot;不&quot;, &quot;错&quot;, &quot;&quot;, &quot;早&quot;, &quot;上&quot;, &quot;好&quot;]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><code>flatMap</code> 方法与 <code>map</code> 方法和深度depth为1的 <code>flat</code> 几乎相同.</p> <h2 id="_4、string-prototype-trimstart"><a href="#_4、string-prototype-trimstart" class="header-anchor">#</a> 4、String.prototype.trimStart()</h2> <p>trimStart() 方法从字符串的开头删除空格，trimLeft()是此方法的别名。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let str = '   foo  '
+console.log(str.length) // 8
+str = str.trimStart() // 或str.trimLeft()
+console.log(str.length) // 5
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_5、string-prototype-trimend"><a href="#_5、string-prototype-trimend" class="header-anchor">#</a> 5、String.prototype.trimEnd()</h2> <p>trimEnd() 方法从一个字符串的右端移除空白字符，trimRight 是 trimEnd 的别名。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let str = '   foo  '
+console.log(str.length) // 8
+str = str.trimEnd() // 或str.trimRight()
+console.log(str.length) // 6
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_6、可选的catch-binding"><a href="#_6、可选的catch-binding" class="header-anchor">#</a> 6、可选的Catch Binding</h2> <p>在 ES10 之前我们都是这样捕获异常的：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>try {
+    // tryCode
+} catch (err) {
+    // catchCode
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>在这里 err 是必须的参数，在 ES10 可以省略这个参数：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>try {
+    console.log('Foobar')
+} catch {
+    console.error('Bar')
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="应用"><a href="#应用" class="header-anchor">#</a> 应用</h3> <p><strong>验证参数是否为json格式</strong></p> <p>这个需求我们只需要返回true或false，并不关心catch的参数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const validJSON = json =&gt; {
+    try {
+        JSON.parse(json)
+        return true
+    } catch {
+        return false
+    }
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_7、symbol-prototype-description"><a href="#_7、symbol-prototype-description" class="header-anchor">#</a> 7、Symbol.prototype.description</h2> <p>我们知道，Symbol 的描述只被存储在内部的 <code>Description</code> ，没有直接对外暴露，我们只有调用 Symbol 的 toString() 时才可以读取这个属性：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const name = Symbol('es')
+console.log(name.toString()) // Symbol(es)
+console.log(name) // Symbol(es)
+console.log(name === 'Symbol(es)') // false
+console.log(name.toString() === 'Symbol(es)') // true
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>现在可以通过 description 方法获取 Symbol 的描述:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const name = Symbol('es')
+console.log(name.description) // es
+name.description = &quot;es2&quot; // 只读属性 并不能修改描述符
+console.log(name.description === 'es') // true
+// 如果没有描述符 输入undefined
+const s2 = Symbol()
+console.log(s2.description) // undefined
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_8、json-stringify-增强能力"><a href="#_8、json-stringify-增强能力" class="header-anchor">#</a> 8、JSON.stringify() 增强能力</h2> <p>JSON.stringify 在 ES10 修复了对于一些超出范围的 Unicode 展示错误的问题。因为 JSON 都是被编码成 UTF-8，所以遇到 0xD800–0xDFFF 之内的字符会因为无法编码成 UTF-8 进而导致显示错误。在 ES10 它会用转义字符的方式来处理这部分字符而非编码的方式，这样就会正常显示了。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// \uD83D\uDE0E  emoji 多字节的一个字符
+console.log(JSON.stringify('\uD83D\uDE0E')) // 打印出笑脸
+
+// 如果我们只去其中的一部分  \uD83D 这其实是个无效的字符串
+// 之前的版本 ，这些字符将替换为特殊字符，而现在将未配对的代理代码点表示为JSON转义序列
+console.log(JSON.stringify('\uD83D')) // &quot;\ud83d&quot;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_9、修订-function-prototype-tostring"><a href="#_9、修订-function-prototype-tostring" class="header-anchor">#</a> 9、修订 Function.prototype.toString()</h2> <p>以前函数的toString方法来自Object.prototype.toString(),现在的
+Function.prototype.toString() 方法返回一个表示当前函数源代码的字符串。以前只会返回这个函数，不包含注释、空格等。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function foo() {
+    // es10新特性
+    console.log('imooc')
+}
+console.log(foo.toString())
+// 打印如下
+// function foo() {
+//  // es10新特性
+//  console.log(&quot;imooc&quot;);
+// }
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>将返回注释、空格和语法等详细信息。</p> <h1 id="五、es2020-es11"><a href="#五、es2020-es11" class="header-anchor">#</a> 五、ES2020(ES11)</h1> <h2 id="_1、空值合并运算符-nullish-coalescing-operator"><a href="#_1、空值合并运算符-nullish-coalescing-operator" class="header-anchor">#</a> 1、空值合并运算符（Nullish coalescing Operator）</h2> <p><strong>空值合并操作符</strong>（ <code>??</code> ）是一个逻辑操作符，当左侧的操作数为 <code>null</code>或者<code>undefined</code>时，返回其右侧操作数，否则返回左侧操作数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const foo = undefined ?? &quot;foo&quot;
+const bar = null ?? &quot;bar&quot;
+console.log(foo) // foo
+console.log(bar) // bar
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>与逻辑或操作符（<code>||</code>）不同，逻辑或操作符会在左侧操作数为假值时返回右侧操作数。也就是说，如果使用 <code>||</code> 来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如<code>''</code>,<code>0</code>,<code>NaN</code>,<code>false</code>）时。见下面的例子。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const foo = &quot;&quot; ?? 'default string';
+const foo2 = &quot;&quot; || 'default string';
+console.log(foo); // &quot;&quot;
+console.log(foo2); // &quot;default string&quot;
+
+const baz = 0 ?? 42;
+const baz2 = 0 || 42;
+console.log(baz); // 0
+console.log(baz2); // 42
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="注意点-5"><a href="#注意点-5" class="header-anchor">#</a> 注意点</h3> <p>将 <code>??</code> 直接与 AND（<code>&amp;&amp;</code>）和 OR（<code>||</code>）操作符组合使用是不可取的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>null || undefined ?? &quot;foo&quot;; // 抛出 SyntaxError
+true || undefined ?? &quot;foo&quot;; // 抛出 SyntaxError
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_2、可选链-optional-chaining"><a href="#_2、可选链-optional-chaining" class="header-anchor">#</a> 2、可选链 Optional chaining</h2> <h3 id="介绍-2"><a href="#介绍-2" class="header-anchor">#</a> 介绍</h3> <p><strong>可选链</strong>操作符( <code>?.</code> )允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。<code>?.</code> 操作符的功能类似于 <code>.</code> 链式操作符，不同之处在于，在引用为 <code>null</code> 或者 <code>undefined</code> 的情况下不会引起错误，该表达式短路返回值是 <code>undefined</code>。与函数调用一起使用时，如果给定的函数不存在，则返回 <code>undefined</code>。</p> <p>当尝试访问可能不存在的对象属性时，可选链操作符将会使表达式更短、更简明。在探索一个对象的内容时，如果不能确定哪些属性必定存在，可选链操作符也是很有帮助的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const user = {
+    address: {
+        street: 'xx街道',
+        getNum() {
+            return '80号'
+        }
+    }
+}
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>在之前的语法中，想获取到深层属性或方法，不得不做前置校验，否则很容易命中 <code>Uncaught TypeError: Cannot read property...</code> 这种错误，这极有可能让你整个应用挂掉。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const street = user &amp;&amp; user.address &amp;&amp; user.address.street
+const num = user &amp;&amp; user.address &amp;&amp; user.address.getNum &amp;&amp; user.address.getNum()
+console.log(street, num)
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>用了 Optional Chaining ，上面代码会变成</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const street2 = user?.address?.street
+const num2 = user?.address?.getNum?.()
+console.log(street2, num2)
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>可选链中的 ? 表示如果问号左边表达式有值, 就会继续查询问号后面的字段。根据上面可以看出，用可选链可以大量简化类似繁琐的前置校验操作，而且更安全。</p> <h3 id="常见用法"><a href="#常见用法" class="header-anchor">#</a> 常见用法</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>  // 对象中使用
+  let obj = {
+    name: &quot;jimmy&quot;,
+    age: &quot;18&quot;,
+  };
+  let property = &quot;age&quot;;
+  let name = obj?.name;
+  let age = obj?.age;
+  let ages = obj?.[property];
+  let sex = obj?.sex;
+  console.log(name); // jimmy
+  console.log(age); // 18
+  console.log(ages); // 18
+  console.log(sex); // undefined
+
+  // 数组中使用
+  let arr = [1,2,2];
+  let arrayItem = arr?.[42]; // undefined
+
+  // 函数中使用
+  let obj = {
+   func: function () {
+     console.log(&quot;I am func&quot;);
+   },
+  };
+  obj?.func(); // I am func
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h3 id="与空值合并操作符一起使用"><a href="#与空值合并操作符一起使用" class="header-anchor">#</a> 与空值合并操作符一起使用</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>let customer = {
+  name: &quot;jimmy&quot;,
+  details: { age: 18 }
+};
+let customerCity = customer?.city ?? &quot;成都&quot;;
+console.log(customerCity); // &quot;成都&quot;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="注意点-6"><a href="#注意点-6" class="header-anchor">#</a> 注意点</h3> <p><strong>可选链不能用于赋值</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let object = {};
+object?.property = 1; // Uncaught SyntaxError: Invalid left-hand side in assignment
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="_3、globalthis"><a href="#_3、globalthis" class="header-anchor">#</a> 3、globalThis</h2> <p>在以前，从不同的 JavaScript 环境中获取全局对象需要不同的语句。在 Web 中，可以通过 <code>window</code>、<code>self</code> 取到全局对象，在 Node.js 中，它们都无法获取，必须使用 <code>global</code>。</p> <p>在松散模式下，可以在函数中返回 <code>this</code> 来获取全局对象，但是在严格模式和模块环境下，<code>this</code> 会返回 <code>undefined</code>。</p> <p>以前想要获取全局对象，可通过一个全局函数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const getGlobal = () =&gt; {
+    if (typeof self !== 'undefined') {
+        return self
+    }
+    if (typeof window !== 'undefined') {
+        return window
+    }
+    if (typeof global !== 'undefined') {
+        return global
+    }
+    throw new Error('无法找到全局对象')
+}
+
+const globals = getGlobal()
+console.log(globals)
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>现在<code>globalThis</code> 提供了一个标准的方式来获取不同环境下的全局 <code>this</code>  对象（也就是全局对象自身）。不像 <code>window</code> 或者 <code>self</code> 这些属性，它确保可以在有无窗口的各种环境下正常工作。所以，你可以安心的使用 <code>globalThis</code>，不必担心它的运行环境。</p> <p>为便于记忆，你只需要记住，全局作用域中的 <code>this</code> 就是<code>globalThis</code>。以后就用globalThis就行了。</p> <h2 id="_4、bigint"><a href="#_4、bigint" class="header-anchor">#</a> 4、BigInt</h2> <p><strong><code>BigInt</code></strong> 是一种内置对象，它提供了一种方法来表示大于 <code>2的53次方 - 1</code> 的整数。这原本是 Javascript中可以用 <code>Number</code> 表示的最大数字。<strong><code>BigInt</code></strong> 可以表示任意大的整数。</p> <p><strong>使用 BigInt 有两种方式：</strong></p> <h3 id="方式一-数字后面增加n"><a href="#方式一-数字后面增加n" class="header-anchor">#</a> 方式一：数字后面增加n</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const bigInt = 9007199254740993n
+console.log(bigInt)
+console.log(typeof bigInt) // bigint
+
+// `BigInt` 和 [`Number`]不是严格相等的，但是宽松相等的。
+console.log(1n == 1) // true
+console.log(1n === 1) // false
+
+// `Number` 和 `BigInt` 可以进行比较。
+1n &lt; 2 // ↪ true
+2n &gt; 1 // ↪ true
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="方式二-使用-bigint-函数"><a href="#方式二-使用-bigint-函数" class="header-anchor">#</a> 方式二：使用 BigInt 函数</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>const bigIntNum = BigInt(9007199254740993n)
+console.log(bigIntNum)
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="运算"><a href="#运算" class="header-anchor">#</a> 运算</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>let number = BigInt(2);
+let a = number + 2n; // 4n
+let b = number * 10n; // 20n
+let c = number - 10n; // -8n
+console.log(a);
+console.log(b);
+console.log(c);
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="注意点-7"><a href="#注意点-7" class="header-anchor">#</a> 注意点</h3> <p>BigInt不能用于 [<code>Math</code>] 对象中的方法；不能和任何 [<code>Number</code>] 实例混合运算，两者必须转换成同一种类型。在两种类型来回转换时要小心，因为 <code>BigInt</code> 变量在转换成 [<code>Number</code>] 变量时可能会丢失精度。</p> <h2 id="_5、string-prototype-matchall"><a href="#_5、string-prototype-matchall" class="header-anchor">#</a> 5、String.prototype.matchAll()</h2> <p><strong><code>matchAll()</code></strong>  方法返回一个包含所有匹配正则表达式的结果及分组捕获组的迭代器。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const regexp = /t(e)(st(\d?))/g;
+const str = 'test1test2';
+
+const array = [...str.matchAll(regexp)];
+console.log(array[0]);  // [&quot;test1&quot;, &quot;e&quot;, &quot;st1&quot;, &quot;1&quot;]
+console.log(array[1]); // [&quot;test2&quot;, &quot;e&quot;, &quot;st2&quot;, &quot;2&quot;]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_6、promise-allsettled"><a href="#_6、promise-allsettled" class="header-anchor">#</a> 6、Promise.allSettled()</h2> <p>我们都知道 Promise.all() 具有并发执行异步任务的能力。但它的最大问题就是如果其中某个任务出现异常(reject)，所有任务都会挂掉，Promise直接进入reject 状态。</p> <p>场景：现在页面上有三个请求，分别请求不同的数据，如果一个接口服务异常，整个都是失败的，都无法渲染出数据</p> <p>我们需要一种机制，如果并发任务中，无论一个任务正常或者异常，都会返回对应的的状态，这就是<code>Promise.allSettled</code>的作用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const promise1 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(&quot;promise1&quot;);
+      //   reject(&quot;error promise1 &quot;);
+    }, 3000);
+  });
+};
+const promise2 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(&quot;promise2&quot;);
+      //   reject(&quot;error promise2 &quot;);
+    }, 1000);
+  });
+};
+const promise3 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      //   resolve(&quot;promise3&quot;);
+      reject(&quot;error promise3 &quot;);
+    }, 2000);
+  });
+};
+
+//  Promise.all 会走到catch里面
+Promise.all([promise1(), promise2(), promise3()])
+  .then((res) =&gt; {
+    console.log(res);
+  })
+  .catch((error) =&gt; {
+    console.log(&quot;error&quot;, error); // error promise3
+  });
+
+// Promise.allSettled 不管有没有错误，三个的状态都会返回
+Promise.allSettled([promise1(), promise2(), promise3()])
+  .then((res) =&gt; {
+    console.log(res);
+    // 打印结果
+    // [
+    //    {status: 'fulfilled', value: 'promise1'},
+    //    {status: 'fulfilled',value: 'promise2'},
+    //    {status: 'rejected', reason: 'error promise3 '}
+    // ]
+  })
+  .catch((error) =&gt; {
+    console.log(&quot;error&quot;, error);
+  });
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><h2 id="_7、dynamic-import-按需-import"><a href="#_7、dynamic-import-按需-import" class="header-anchor">#</a> 7、Dynamic Import（按需 import）</h2> <p><code>import()</code>可以在需要的时候，再加载某个模块。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>button.addEventListener('click', event =&gt; {
+  import('./dialogBox.js')
+  .then(dialogBox =&gt; {
+    dialogBox.open();
+  })
+  .catch(error =&gt; {
+    /* Error handling */
+  })
+});
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>上面代码中，<code>import()</code>方法放在<code>click</code>事件的监听函数之中，只有用户点击了按钮，才会加载这个模块。</p> <h1 id="六、es2021-es12"><a href="#六、es2021-es12" class="header-anchor">#</a> 六、ES2021(ES12)</h1> <h2 id="_1、逻辑运算符和赋值表达式"><a href="#_1、逻辑运算符和赋值表达式" class="header-anchor">#</a> 1、逻辑运算符和赋值表达式（&amp;&amp;=，||=，??=）</h2> <h3 id=""><a href="#" class="header-anchor">#</a> &amp;&amp;=</h3> <p>逻辑与赋值 <code>x &amp;&amp;= y</code>等效于：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>x &amp;&amp; (x = y);
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>上面的意思是，当x为真时，x=y。 具体请看下面的示例:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let a = 1;
+let b = 0;
+
+a &amp;&amp;= 2;
+console.log(a); // 2
+
+b &amp;&amp;= 2;
+console.log(b);  // 0
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="-2"><a href="#-2" class="header-anchor">#</a> ||=</h3> <p>逻辑或赋值（<code>x ||= y</code>）运算仅在 <code>x</code> 为false时赋值。</p> <p><strong><code>x ||= y</code> 等同于：x || (x = y);</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const a = { duration: 50, title: '' };
+
+a.duration ||= 10;
+console.log(a.duration); // 50
+
+a.title ||= 'title is empty.';
+console.log(a.title); // &quot;title is empty&quot;
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="-3"><a href="#-3" class="header-anchor">#</a> ??=</h3> <p>逻辑空赋值运算符 (<code>x ??= y</code>) 仅在 <code>x</code> 是 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FGlossary%2FNullish" target="_blank" rel="noopener noreferrer">nullish<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> (<code>null</code> 或 <code>undefined</code>) 时对其赋值。</p> <p><strong><code>x ??= y</code> 等价于： x ?? (x = y);</strong></p> <p><strong>示例一</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const a = { duration: 50 };
+
+a.duration ??= 10;
+console.log(a.duration); // 50
+
+a.speed ??= 25;
+console.log(a.speed); // 25
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>示例二</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function config(options) {
+  options.duration ??= 100;
+  options.speed ??= 25;
+  return options;
+}
+
+config({ duration: 125 }); // { duration: 125, speed: 25 }
+config({}); // { duration: 100, speed: 25 }
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_2、string-prototype-replaceall"><a href="#_2、string-prototype-replaceall" class="header-anchor">#</a> 2、String.prototype.replaceAll()</h2> <h3 id="介绍-3"><a href="#介绍-3" class="header-anchor">#</a> 介绍</h3> <p><code>replaceAll()</code>  方法返回一个新字符串，新字符串中所有满足 <code>pattern</code> 的部分都会被<code>replacement</code> 替换。<code>pattern</code>可以是一个字符串或一个<code>RegExp</code>，<code>replacement</code>可以是一个字符串或一个在每次匹配被调用的函数。</p> <p>原始字符串保持不变。</p> <h3 id="示例-7"><a href="#示例-7" class="header-anchor">#</a> 示例</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>'aabbcc'.replaceAll('b', '.'); // 'aa..cc'
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>使用正则表达式搜索值时，它必须是全局的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>'aabbcc'.replaceAll(/b/, '.');
+TypeError: replaceAll must be called with a global RegExp
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>这将可以正常运行:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>'aabbcc'.replaceAll(/b/g, '.');
+&quot;aa..cc&quot;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="数字分隔符"><a href="#数字分隔符" class="header-anchor">#</a> <strong>数字分隔符</strong></h2> <p>欧美语言中，较长的数值允许每三位添加一个分隔符（通常是一个逗号），增加数值的可读性。比如，<code>1000</code>可以写作<code>1,000</code>。</p> <p><code>ES2021</code>中允许 JavaScript 的数值使用下划线（<code>_</code>）作为分隔符。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>let budget = 1_000_000_000_000;
+budget === 10 ** 12 // true
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>这个数值分隔符没有指定间隔的位数，也就是说，可以每三位添加一个分隔符，也可以每一位、每两位、每四位添加一个。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>123_00 === 12_300 // true
+
+12345_00 === 123_4500 // true
+12345_00 === 1_234_500 // true
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>小数和科学计数法也可以使用数值分隔符。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 小数
+0.000_001
+
+// 科学计数法
+1e10_000
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>数值分隔符有几个使用注意点。</p> <ul><li>不能放在数值的最前面（leading）或最后面（trailing）。</li> <li>不能两个或两个以上的分隔符连在一起。</li> <li>小数点的前后不能有分隔符。</li> <li>科学计数法里面，表示指数的<code>e</code>或<code>E</code>前后不能有分隔符。</li></ul> <p>下面的写法都会报错。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 全部报错
+3_.141
+3._141
+1_e12
+1e_12
+123__456
+_1464301
+1464301_
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="_3、promise-any"><a href="#_3、promise-any" class="header-anchor">#</a> 3、<strong>Promise.any</strong></h2> <p>方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例返回。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const promise1 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(&quot;promise1&quot;);
+      //  reject(&quot;error promise1 &quot;);
+    }, 3000);
+  });
+};
+const promise2 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(&quot;promise2&quot;);
+      // reject(&quot;error promise2 &quot;);
+    }, 1000);
+  });
+};
+const promise3 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      resolve(&quot;promise3&quot;);
+      // reject(&quot;error promise3 &quot;);
+    }, 2000);
+  });
+};
+Promise.any([promise1(), promise2(), promise3()])
+  .then((first) =&gt; {
+    // 只要有一个请求成功 就会返回第一个请求成功的
+    console.log(fimu
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>只要参数实例有一个变成<code>fulfilled</code>状态，包装实例就会变成<code>fulfilled</code>状态；如果所有参数实例都变成<code>rejected</code>状态，包装实例就会变成<code>rejected</code>状态。</p> <p><code>Promise.any()</code>跟<code>Promise.race()</code>方法很像，只有一点不同，就是<code>Promise.any()</code>不会因为某个 Promise 变成<code>rejected</code>状态而结束，必须等到所有参数 Promise 变成<code>rejected</code>状态才会结束。</p> <h2 id="_4、weakref-and-finalizers"><a href="#_4、weakref-and-finalizers" class="header-anchor">#</a> 4、WeakRef and Finalizers</h2> <p>这两个新特性，都应该尽量避免使用，所以这里不做过多的讲解。如感兴趣，请参考</p> <p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FReference%2FGlobal_Objects%2FWeakRef" target="_blank" rel="noopener noreferrer">WeakRef<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FReference%2FGlobal_Objects%2FFinalizationRegistry" target="_blank" rel="noopener noreferrer">Finalizers<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="写在最后"><a href="#写在最后" class="header-anchor">#</a> 写在最后</h1> <p>本人水平有限，如有错误，欢迎评论区指出。(ps:<code>ES6</code>系列正在写)</p> <p>作者：Jimmy_fx</p> <p>链接：https://juejin.cn/post/7046217976176967711</p> <p>来源：稀土掘金</p> <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p> <hr></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/pages/webBasics/handwriting.html" class="prev">
+        手写代码
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b67e3504.js" defer></script><script src="/assets/js/2.181410c5.js" defer></script><script src="/assets/js/15.61f9ddb7.js" defer></script>
+  </body>
+</html>
